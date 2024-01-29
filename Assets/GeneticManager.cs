@@ -247,6 +247,9 @@ public class GeneticManager : MonoBehaviour
 
     private void SortPopulation()
     {
+        // bubble sort - replace with merge sort
+        // also see aqa website for example advanced
+        // algorithms/techniques
         for (int i = 0; i < population.Length; i++)
         {
             for (int j = i; j < population.Length; j++)

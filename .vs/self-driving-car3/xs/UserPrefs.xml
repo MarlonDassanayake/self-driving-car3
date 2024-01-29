@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{342F24D0-C26A-F149-9093-301863F2053E}|">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GeneticManager.cs">
+    <Files>
+      <File FileName="Assets/CarController.cs" Line="1" Column="1" />
+      <File FileName="Assets/GeneticManager.cs" Line="265" Column="1" />
+      <File FileName="Assets/NNet.cs" Line="131" Column="50" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="self-driving-car3">
+            <Node name="Assets" expanded="True">
+              <Node name="GeneticManager.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="164ce546-2924-48d6-be47-8590a47515f7" />
+  <MultiItemStartupConfigurations />
+</Properties>

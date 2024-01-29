@@ -97,7 +97,8 @@ public class CarController : MonoBehaviour
             Death();
         }
 
-        if (overallFitness >= 1000) {
+        if (overallFitness >= 1000)
+        {
             Death();
         }
 
