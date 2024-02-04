@@ -99,6 +99,7 @@ public class CarController : MonoBehaviour
 
         if (overallFitness >= 1000)
         {
+            // At this point we could save the network to a JSON
             Death();
         }
 

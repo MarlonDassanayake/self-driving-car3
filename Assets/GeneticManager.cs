@@ -7,7 +7,10 @@ using MathNet.Numerics.LinearAlgebra;
 public class GeneticManager : MonoBehaviour
 {
     [Header("References")]
-    public CarController controller;
+    public CarController controller; // old
+
+    // Define a car controller object
+    public CarController controller1;
 
     [Header("Controls")]
     public int initialPopulation = 85;
@@ -19,11 +22,17 @@ public class GeneticManager : MonoBehaviour
     public int worstAgentSelection = 3;
     public int numberToCrossover;
 
-    private List<int> genePool = new List<int>();
+    private List<int> genePool = new List<int>(); // old
+    
+    // Create a list of integers to represent the gene pool (the networks that are selected)
+    private List<int> genePool1 = new List<int>();
 
-    private int naturallySelected;
+    private int naturallySelected; // A counter
 
-    private NNet[] population;
+    private NNet[] population;  // old
+
+    // Create an array of neural networks to represent the popultation
+    private NNet[] population1; 
 
     [Header("Public View")]
     public int currentGeneration;
