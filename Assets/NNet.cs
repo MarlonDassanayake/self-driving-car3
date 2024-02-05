@@ -123,7 +123,7 @@ public class NNet : MonoBehaviour
                 Matrix<float> inputToH1 = Matrix<float>.Build.Dense(3, hiddenNeuronCount); // old
                 weights.Add(inputToH1);                                                    // old
 
-                List<List<float>> inputLayerToHidden1 = CreateMatrix(3,hiddenNeuronCount);
+                List<List<float>> inputLayerToHidden1 = CreateMatrix(3, hiddenNeuronCount);
                 weights1.Add(inputLayerToHidden1);    
             }
 
@@ -148,11 +148,15 @@ public class NNet : MonoBehaviour
 
     public NNet InitialiseCopy (int hiddenLayerCount, int hiddenNeuronCount)
     {
-        NNet n = (new GameObject().AddComponent<NNet>());
+        NNet n = (new GameObject().AddComponent<NNet>());           // old
+        NNet newNetwork = (new GameObject().AddComponent<NNet>());
 
-        List<Matrix<float>> newWeights = new List<Matrix<float>>();
+        List<Matrix<float>> newWeights = new List<Matrix<float>>(); // old
+        
+        // Create a new list of matrices to represent the new weights
+        List<List<List<float>>> newWeights1 = new List<List<List<float>>>();
 
-        for (int i = 0; i < this.weights.Count; i++)
+        for (int i = 0; i < this.weights.Count; i++)        // old loop
         {
             Matrix<float> currentWeight = Matrix<float>.Build.Dense(weights[i].RowCount, weights[i].ColumnCount);
 
@@ -167,28 +171,65 @@ public class NNet : MonoBehaviour
             newWeights.Add(currentWeight);
         }
 
-        List<float> newBiases = new List<float>();
+        // Loop through the currents weights in this Neural network class and assign these to the new list of weights
+        // I THINK ADDRANGE() CAN BE USED TO DO THIS! , or see comment on vd 3 'bravo'
+        for (int i = 0; i < this.weights1.Count; i++)        
+        {
+            List<List<float>> currentWeight1 = CreateMatrix(weights1[i].Count, weights1[i][0].Count);
 
-        newBiases.AddRange(biases);
+            for (int x = 0; x < currentWeight1.Count; x++)
+            {
+                for (int y = 0; y < currentWeight1[0].Count; y++)
+                {
+                    currentWeight1[x][y] = weights1[i][x][y];
+                }
+            }
 
-        n.weights = newWeights;
-        n.biases = newBiases;
+            newWeights1.Add(currentWeight1);
+        }
 
-        n.InitialiseHidden(hiddenLayerCount, hiddenNeuronCount);
+        List<float> newBiases = new List<float>(); //old
+        newBiases.AddRange(biases); //old
+        n.weights = newWeights; //old
+        n.biases = newBiases;   //old
 
-        return n;
+        // Initialise biases
+        List<float> newBiases1 = new List<float>();
+        newBiases1.AddRange(biases1);
+        newNetwork.weights1 = newWeights1;
+        newNetwork.biases1 = newBiases1;
+
+        n.weights1 = newWeights1;
+        n.biases1 = newBiases1;
+
+        n.InitialiseHidden(hiddenLayerCount, hiddenNeuronCount); // old
+
+        newNetwork.InitialiseHidden(hiddenLayerCount, hiddenNeuronCount); 
+
+        return n;               // to be repalced with return newNetwork.
+        // return newNetwork;
     }
 
     public void InitialiseHidden (int hiddenLayerCount, int hiddenNeuronCount)
     {
-        inputLayer.Clear();
-        hiddenLayers.Clear();
-        outputLayer.Clear();
+        inputLayer.Clear();     // old
+        hiddenLayers.Clear();   // old
+        outputLayer.Clear();    // old
 
+        // Reset input layer, output layer and hidden layers.
+        ResetMatrix(inputLayer1);
+        ResetMatrix(outputLayer1);
+        hiddenLayers1.Clear();
+
+        // Copy the hidden layers
         for (int i = 0; i < hiddenLayerCount + 1; i ++)
         {
-            Matrix<float> newHiddenLayer = Matrix<float>.Build.Dense(1, hiddenNeuronCount);
-            hiddenLayers.Add(newHiddenLayer);
+            Matrix<float> newHiddenLayer = Matrix<float>.Build.Dense(1, hiddenNeuronCount); // old
+            hiddenLayers.Add(newHiddenLayer);                                               // old
+
+            List<List<float>> newHiddenLayer1 = CreateMatrix(1, hiddenNeuronCount);
+            hiddenLayers1.Add(newHiddenLayer1);
+
         }
 
     }
@@ -209,13 +250,24 @@ public class NNet : MonoBehaviour
 
         // Sets a random value in each element of each weight matrix
 
-        foreach (var matrix in weights1)
+        //foreach (var matrix in weights1)
+        //{
+        //    foreach (var row in matrix)
+        //    {
+        //        for (int i = 0; i < row.Count; i++)
+        //        {
+        //            row[i] = Random.Range(-1f, 1f);
+        //        }
+        //    }
+        //}
+
+        for (int i = 0; i < weights1.Count; i++)                 
         {
-            foreach (var row in matrix)
+            for (int x = 0; x < weights1[i].Count; x++)
             {
-                for (int i = 0; i < row.Count; i++)
+                for (int y = 0; y < weights1[i][0].Count; y++)
                 {
-                    row[i] = Random.Range(-1f, 1f);
+                    weights1[i][x][y] = Random.Range(-1f, 1f);
                 }
             }
         }
@@ -245,13 +297,16 @@ public class NNet : MonoBehaviour
 
         hiddenLayers[0] = ((inputLayer * weights[0]) + biases[0]).PointwiseTanh(); // old
 
+        //test line
+        List<List<float>> testerTester = MultiplyMatrices(inputLayer1, weights1[0]);
+
         // Values for the first hidden layer are created
         hiddenLayers1[0] = MultiplyMatrices(inputLayer1, weights1[0]);
         AddBias(hiddenLayers1[0], biases1[0]);
         HyperbolicTangent(hiddenLayers1[0]);
 
         // Old loop
-        for (int i = 1; i < hiddenLayers.Count; i++)
+        for (int i = 1; i < hiddenLayers.Count; i++) 
         {
             hiddenLayers[i] = ((hiddenLayers[i - 1] * weights[i]) + biases[i]).PointwiseTanh(); 
         }
@@ -320,7 +375,7 @@ public class NNet : MonoBehaviour
         return resultMatrix;
     }
 
-    public static List<List<float>> AddMatrices(List<List<float>> matrixA, List<List<float>> matrixB)
+    public static List<List<float>> AddMatrices(List<List<float>> matrixA, List<List<float>> matrixB)   // obsolete
     {
 
         // Check if matrices can be added
