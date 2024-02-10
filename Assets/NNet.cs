@@ -198,6 +198,8 @@ public class NNet : MonoBehaviour
         newBiases1.AddRange(biases1);
         newNetwork.weights1 = newWeights1;
         newNetwork.biases1 = newBiases1;
+        newNetwork.weights = newWeights; // maybe fix
+        newNetwork.biases = newBiases;      // maybe fix
 
         n.weights1 = newWeights1;
         n.biases1 = newBiases1;
@@ -206,8 +208,8 @@ public class NNet : MonoBehaviour
 
         newNetwork.InitialiseHidden(hiddenLayerCount, hiddenNeuronCount); 
 
-        return n;               // to be repalced with return newNetwork.
-        // return newNetwork;
+        // return n;               // to be repalced with return newNetwork.
+        return newNetwork;
     }
 
     public void InitialiseHidden (int hiddenLayerCount, int hiddenNeuronCount)
@@ -328,10 +330,10 @@ public class NNet : MonoBehaviour
 
         // Return the output values
         // Outputs are acceleration and steering
-        return (Sigmoid(outputLayer[0,0]), (float)Math.Tanh(outputLayer[0,1])); // old
+        //return (Sigmoid(outputLayer[0,0]), (float)Math.Tanh(outputLayer[0,1])); // old
 
         // UNCOMMENT LATER
-        //return (Sigmoid(outputLayer1[0][0]), (float)(Mathf.Exp(outputLayer1[0][1]) - Mathf.Exp(-outputLayer1[0][1]))/(Mathf.Exp(outputLayer1[0][1]) + Mathf.Exp(-outputLayer1[0][1])));
+        return (Sigmoid(outputLayer1[0][0]), (float)(Mathf.Exp(outputLayer1[0][1]) - Mathf.Exp(-outputLayer1[0][1]))/(Mathf.Exp(outputLayer1[0][1]) + Mathf.Exp(-outputLayer1[0][1])));
 
     }
 
