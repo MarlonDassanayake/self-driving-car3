@@ -22,7 +22,7 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-49186
+49210
 Successfully changed project path to: /Users/marlondassanayake/Desktop/self-driving-car3
 /Users/marlondassanayake/Desktop/self-driving-car3
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -56,9 +56,9 @@ Successfully changed project path to: /Users/marlondassanayake/Desktop/self-driv
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8385027584] Host "[IP] 192.168.1.216 [Port] 0 [Flags] 2 [Guid] 2767711618 [EditorId] 2767711618 [Version] 1048832 [Id] OSXEditor(0,Marlons-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [8247746048] Host "[IP] 192.168.1.216 [Port] 0 [Flags] 2 [Guid] 3193872915 [EditorId] 3193872915 [Version] 1048832 [Id] OSXEditor(0,Marlons-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [8385027584] Host "[IP] 192.168.1.216 [Port] 0 [Flags] 2 [Guid] 2767711618 [EditorId] 2767711618 [Version] 1048832 [Id] OSXEditor(0,Marlons-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8247746048] Host "[IP] 192.168.1.216 [Port] 0 [Flags] 2 [Guid] 3193872915 [EditorId] 3193872915 [Version] 1048832 [Id] OSXEditor(0,Marlons-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 Refreshing native plugins compatible for Editor in 2.05 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -75,46 +75,46 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56110
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56997
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.6f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001013 seconds.
-- Loaded All Assemblies, in  0.171 seconds
+Registered in 0.000999 seconds.
+- Loaded All Assemblies, in  0.165 seconds
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.122 seconds
-Domain Reload Profiling: 293ms
-	BeginReloadAssembly (39ms)
+- Finished resetting the current domain, in  0.129 seconds
+Domain Reload Profiling: 294ms
+	BeginReloadAssembly (35ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (0ms)
-	RebuildCommonClasses (22ms)
+	RebuildCommonClasses (20ms)
 	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (26ms)
-	LoadAllAssembliesAndSetupDomain (77ms)
-		LoadAssemblies (38ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (78ms)
+		LoadAssemblies (35ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
 		AnalyzeDomain (76ms)
-			TypeCache.Refresh (75ms)
-				TypeCache.ScanAssembly (69ms)
+			TypeCache.Refresh (76ms)
+				TypeCache.ScanAssembly (70ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (122ms)
+	FinalizeReload (129ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (91ms)
+		SetupLoadedEditorAssemblies (96ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (4ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (1ms)
-			ProcessInitializeOnLoadAttributes (62ms)
-			ProcessInitializeOnLoadMethodAttributes (21ms)
+			ProcessInitializeOnLoadAttributes (66ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -124,40 +124,40 @@ Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.375 seconds
-Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+- Loaded All Assemblies, in  0.363 seconds
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.242 seconds
-Domain Reload Profiling: 618ms
-	BeginReloadAssembly (68ms)
+- Finished resetting the current domain, in  0.243 seconds
+Domain Reload Profiling: 606ms
+	BeginReloadAssembly (62ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (22ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (20ms)
 	RebuildNativeTypeToScriptingClass (7ms)
 	initialDomainReloadingComplete (20ms)
-	LoadAllAssembliesAndSetupDomain (258ms)
-		LoadAssemblies (109ms)
+	LoadAllAssembliesAndSetupDomain (254ms)
+		LoadAssemblies (108ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (173ms)
-			TypeCache.Refresh (165ms)
-				TypeCache.ScanAssembly (158ms)
+		AnalyzeDomain (170ms)
+			TypeCache.Refresh (162ms)
+				TypeCache.ScanAssembly (156ms)
 			ScanForSourceGeneratedMonoScriptInfo (6ms)
 			ResolveRequiredComponents (2ms)
 	FinalizeReload (243ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (169ms)
+		SetupLoadedEditorAssemblies (168ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (3ms)
 			SetLoadedEditorAssemblies (2ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (30ms)
-			ProcessInitializeOnLoadAttributes (122ms)
+			BeforeProcessingInitializeOnLoad (28ms)
+			ProcessInitializeOnLoadAttributes (124ms)
 			ProcessInitializeOnLoadMethodAttributes (10ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
@@ -165,12 +165,12 @@ Domain Reload Profiling: 618ms
 		AwakeInstancesAfterBackupRestoration (2ms)
 Launching external process: /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3070 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (51.1 KB). Loaded Objects now: 3531.
+Unloading 32 unused Assets / (51.0 KB). Loaded Objects now: 3531.
 Memory consumption went from 121.9 MB to 121.9 MB.
-Total: 1.967500 ms (FindLiveObjects: 0.087583 ms CreateObjectMapping: 0.041084 ms MarkObjects: 1.781459 ms  DeleteObjects: 0.056833 ms)
+Total: 2.180792 ms (FindLiveObjects: 0.083542 ms CreateObjectMapping: 0.045625 ms MarkObjects: 1.986208 ms  DeleteObjects: 0.064875 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -187,52 +187,556 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 316.825635 seconds.
-  path: Assets/NNet.cs
-  artifactKey: Guid(d67d77e20ad5f4e7fb2df2a2621189c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NNet.cs using Guid(d67d77e20ad5f4e7fb2df2a2621189c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a00650752e2abac3a10936123d7c5aab') in 0.000977 seconds
+  Time since last request: 606.283104 seconds.
+  path: Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col2.mat
+  artifactKey: Guid(d2344366b80fe3d4f886ec412e0174fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col2.mat using Guid(d2344366b80fe3d4f886ec412e0174fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a695daaa23fa455a239be135e3915a4') in 0.115027 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col3.mat
+  artifactKey: Guid(c4c2ee3e832cffd48bb9d156c2b21376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col3.mat using Guid(c4c2ee3e832cffd48bb9d156c2b21376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd48d0689f7999f3506fc85f1a0761d06') in 0.004329 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000084 seconds.
+  path: Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col5.mat
+  artifactKey: Guid(74196cf5d503c14488ae1ef1dbc6c9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ARCADE - FREE Racing Car/Materials/Color Variations/AFRC_Mat_Col5.mat using Guid(74196cf5d503c14488ae1ef1dbc6c9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dff1825cd16862aeddcc0a1c9fcb7f1') in 0.004673 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/ARCADE - FREE Racing Car/Skybox/Night/Night Skybox.mat
+  artifactKey: Guid(102c3f2cfdcb3d64199f97f4f9aa3d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ARCADE - FREE Racing Car/Skybox/Night/Night Skybox.mat using Guid(102c3f2cfdcb3d64199f97f4f9aa3d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6436568177c27e3d9fe8396227634ac0') in 0.232195 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 358.023706 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Car 2.prefab
+  artifactKey: Guid(8a6f09027b5c26b4b8d2f6d00dbce6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Car 2.prefab using Guid(8a6f09027b5c26b4b8d2f6d00dbce6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da918b578b05b666c67bba91b6ece704') in 0.017056 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 36
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Straight 1.prefab
+  artifactKey: Guid(ad182cc030f80d2418924040efeaaedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Straight 1.prefab using Guid(ad182cc030f80d2418924040efeaaedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ccd166730a2c6eb683025729bade8ad') in 0.003897 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Join Road.prefab
+  artifactKey: Guid(c5fef14080d92e1448368c964f4f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Join Road.prefab using Guid(c5fef14080d92e1448368c964f4f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a17dc4abc3fd94a36959e73d4f53ffa2') in 0.003787 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Join Road.prefab
+  artifactKey: Guid(b74054c7819af8a458ae5a11853280ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Join Road.prefab using Guid(b74054c7819af8a458ae5a11853280ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc289272e8813d6f175db09c380ec882') in 0.005634 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Highway 1.prefab
+  artifactKey: Guid(61bdc52826fce8f4d82932062de95073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Highway 1.prefab using Guid(61bdc52826fce8f4d82932062de95073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3beef64a5f6063116c84f4bd2f12d969') in 0.003786 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 3.prefab
+  artifactKey: Guid(ed0aae2e11d87014f915283c004cede3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 3.prefab using Guid(ed0aae2e11d87014f915283c004cede3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb82f499adb3e8622e8b3476b049521c') in 0.003166 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 1.prefab
+  artifactKey: Guid(3851756c71fc60741a0f9a8b4cf1a908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 1.prefab using Guid(3851756c71fc60741a0f9a8b4cf1a908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '159544ccfad2e2e33c60d7727290cf0c') in 0.003726 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Cross SIngleLane.prefab
+  artifactKey: Guid(7037b12e33ea2dc4a98a52fc649b62f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Cross SIngleLane.prefab using Guid(7037b12e33ea2dc4a98a52fc649b62f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ab00cc606ee583b7e1004d53fd08c32') in 0.004577 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Cross Freeway.prefab
+  artifactKey: Guid(67b75b5f8253ef64c9aaab70b17ec06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Cross Freeway.prefab using Guid(67b75b5f8253ef64c9aaab70b17ec06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87362eba86a8816ced183282ab55e50c') in 0.003413 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Curve 2.prefab
+  artifactKey: Guid(e22ea203430a7754fa2d9f5192effac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Curve 2.prefab using Guid(e22ea203430a7754fa2d9f5192effac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7945725185760c2d7176d449d900e571') in 0.004072 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000108 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Road.prefab
+  artifactKey: Guid(517cd28356a64ae4ca59346763bafa76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Road.prefab using Guid(517cd28356a64ae4ca59346763bafa76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f359d5d54aebf2724f99c792cacfed7f') in 0.002788 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000092 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Curve 1.prefab
+  artifactKey: Guid(68199663c6e51f44bae66172807b8014) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Curve 1.prefab using Guid(68199663c6e51f44bae66172807b8014) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dee367ea4925fdf372ab7f82c8398cf7') in 0.005285 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 4.prefab
+  artifactKey: Guid(4d2cdf2836f78914f85386a10cd7db79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 4.prefab using Guid(4d2cdf2836f78914f85386a10cd7db79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0c32366c945bc6b627c3786d268daa8') in 0.003115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Jump.prefab
+  artifactKey: Guid(d995f875a84ca0f4c952dd644d6dbd0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Jump.prefab using Guid(d995f875a84ca0f4c952dd644d6dbd0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '966458ee7d6f05b7ff25b382092cbeae') in 0.004805 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Cross Road.prefab
+  artifactKey: Guid(58cb49345998e1e4ebc99dfa7af32696) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Cross Road.prefab using Guid(58cb49345998e1e4ebc99dfa7af32696) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fed32951dc5ef1398b496e34a9eb635b') in 0.003073 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000103 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Join Freeway 2.prefab
+  artifactKey: Guid(409109bbaa58cf340b5fea204e6aac85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Freeway Join Freeway 2.prefab using Guid(409109bbaa58cf340b5fea204e6aac85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371b8674775a10c172e71a8aa692461a') in 0.004414 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Entrance.prefab
+  artifactKey: Guid(60eed786d7a83604ea71df548e30b85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Entrance.prefab using Guid(60eed786d7a83604ea71df548e30b85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7630693306501282e677de3f9b2e082a') in 0.003073 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Cross Road.prefab
+  artifactKey: Guid(93bec4dd0427e844db426ee1317979ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Cross Road.prefab using Guid(93bec4dd0427e844db426ee1317979ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66c22ec817ed87b2f141a96d09dc47dd') in 0.004186 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Curve.prefab
+  artifactKey: Guid(834e3b05077e0b445961489bb25da1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Curve.prefab using Guid(834e3b05077e0b445961489bb25da1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ccc98d2f9d18ecfe90730869f583edf') in 0.003136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 3.prefab
+  artifactKey: Guid(0dd93b050725d874f92e2caeffb53367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 3.prefab using Guid(0dd93b050725d874f92e2caeffb53367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '944bf126e04a60c2e8619ea8da161e32') in 0.004565 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 2.prefab
+  artifactKey: Guid(7df4389373e28db469018e35144066e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Edge 2.prefab using Guid(7df4389373e28db469018e35144066e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '851e916da055083c52adae3e2c14399b') in 0.003273 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000115 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Straight 1.prefab
+  artifactKey: Guid(b5baae8b9b6343c4484a2886ccff5179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Straight 1.prefab using Guid(b5baae8b9b6343c4484a2886ccff5179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '534738080fd27c619330813d70f43451') in 0.004566 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 1.prefab
+  artifactKey: Guid(66ec34d11111716468cb9de6c840b423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 1.prefab using Guid(66ec34d11111716468cb9de6c840b423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7657656f9a7aa6078f95c539b246fabd') in 0.003277 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Straight 3.prefab
+  artifactKey: Guid(27efc696dd4698a43a8c68ebcf493a87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Straight 3.prefab using Guid(27efc696dd4698a43a8c68ebcf493a87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f31829d9729497746d994021b4f584a') in 0.004576 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 2.prefab
+  artifactKey: Guid(f78f74ffdc7f6c84bbc45b41161fb58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Parkinglot Corner 2.prefab using Guid(f78f74ffdc7f6c84bbc45b41161fb58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8adb61ec5be91d1286fe9263fbe6e04') in 0.003247 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway S-Curve.prefab
+  artifactKey: Guid(c551be7c89271e44c8a795eff4869f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway S-Curve.prefab using Guid(c551be7c89271e44c8a795eff4869f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fd8672c48eb55be0e23922e07fee28b') in 0.004279 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Highway 2.prefab
+  artifactKey: Guid(51c576822a7a42345b47955233d25adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Highway Join Highway 2.prefab using Guid(51c576822a7a42345b47955233d25adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '177e2a56c67cc22bb09b41b5ac5e7e90') in 0.003422 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 3.349328 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Straight 3.prefab
+  artifactKey: Guid(43678520060fa5e42add8825ab61da06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Road Straight 3.prefab using Guid(43678520060fa5e42add8825ab61da06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a28dfe50ba8d69344eab06e165aa64c') in 0.004477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Tunnel Curve.prefab
+  artifactKey: Guid(72e0f34fa25621649ab63b1abedef4d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Tunnel Curve.prefab using Guid(72e0f34fa25621649ab63b1abedef4d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffa8852162770f546360fe64b1aac9ff') in 0.003419 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Cross SingleLane.prefab
+  artifactKey: Guid(4ad77816d1959bd49a799a1fdeb67987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Cross SingleLane.prefab using Guid(4ad77816d1959bd49a799a1fdeb67987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0e6f172a6068d3f9adcc834a2a76a69') in 0.005530 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane S-Curve.prefab
+  artifactKey: Guid(5d8d2fcae15c57f46b59943e3db78e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane S-Curve.prefab using Guid(5d8d2fcae15c57f46b59943e3db78e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e65847dcc1ce9f98fa42e3d489304aa7') in 0.003668 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Join SingleLane.prefab
+  artifactKey: Guid(82697fef831cee04ab4411218e725f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Join SingleLane.prefab using Guid(82697fef831cee04ab4411218e725f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c4bda10174ffba407d7051a0ea5dd7d') in 0.003532 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Straight 1.prefab
+  artifactKey: Guid(9b0c19ad39b17024baf069bf79a4f7c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/SingleLane Straight 1.prefab using Guid(9b0c19ad39b17024baf069bf79a4f7c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e97a0cc02aea8382c09509411a27b3a') in 0.003170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.466470 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Prefabs/Tunnel Straight 4.prefab
+  artifactKey: Guid(a746d36c593c3134488d9e58478b528c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Prefabs/Tunnel Straight 4.prefab using Guid(a746d36c593c3134488d9e58478b528c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b22a606498f79455b6307ce74b69293') in 0.003686 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 131.075035 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Materials/Car Colorscheme 2.mat
+  artifactKey: Guid(1968bf9d74d362c408b28c15132baaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Materials/Car Colorscheme 2.mat using Guid(1968bf9d74d362c408b28c15132baaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31b55040b0fd889ec16c09ba9fe26d84') in 0.008834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.655046 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Car 2.dae
+  artifactKey: Guid(77034832b22fef34387efcaeb7127eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Car 2.dae using Guid(77034832b22fef34387efcaeb7127eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e522dbbda3d6c9c31a330b7ebb9701d') in 0.061065 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 34
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 1.dae
+  artifactKey: Guid(73b78b99c269f4e4982b125270a38b14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 1.dae using Guid(73b78b99c269f4e4982b125270a38b14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd456540c607333da94c457d12b92279f') in 0.004911 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Road S-Curve.dae
+  artifactKey: Guid(1f10034eb2d822e47b73756fa15f8b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Road S-Curve.dae using Guid(1f10034eb2d822e47b73756fa15f8b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bbc34bb892b2d2b6be8e4c7dad9e255') in 0.004604 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Curve 1.dae
+  artifactKey: Guid(861ccec3a0efad5458d9082800f92467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Curve 1.dae using Guid(861ccec3a0efad5458d9082800f92467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1040880c6a63945ce1d8c7233679d87b') in 0.008043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Road Cross SIngleLane.dae
+  artifactKey: Guid(24e6433201fc69a44bf1c8f256d8b997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Road Cross SIngleLane.dae using Guid(24e6433201fc69a44bf1c8f256d8b997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54423a0c622c6c4cfb653c9a68ecabc4') in 0.004465 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Edge 1.dae
+  artifactKey: Guid(71a6712b53f17d642b18dd7dd3873131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Edge 1.dae using Guid(71a6712b53f17d642b18dd7dd3873131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb70648888007e3fa23835bfe061fd37') in 0.005655 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Straight 1.dae
+  artifactKey: Guid(ef63e826ce0e5e94fa9002fc1c038b66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Straight 1.dae using Guid(ef63e826ce0e5e94fa9002fc1c038b66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66e420abb07a6b95c44a9e665a3511bd') in 0.004608 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Road Straight 1.dae
+  artifactKey: Guid(b4923c0dba942fa43a6c6e6831a89113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Road Straight 1.dae using Guid(b4923c0dba942fa43a6c6e6831a89113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8afa5ad374a4e915ceed0ce8471b1e2') in 0.004478 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Straight 4.dae
+  artifactKey: Guid(6390c4a61a53b5446adaed9ccacea90d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Straight 4.dae using Guid(6390c4a61a53b5446adaed9ccacea90d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '044ce198489197f2f2c4b51c1740cf23') in 0.006725 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Road Jump.dae
+  artifactKey: Guid(0f18aa325d40e124db7ca43efb3adacf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Road Jump.dae using Guid(0f18aa325d40e124db7ca43efb3adacf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baee2477d27ab8132f7eacb0f511a28c') in 0.005048 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 2.dae
+  artifactKey: Guid(e7dfa1315d7d3164fb4e39956f2357ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 2.dae using Guid(e7dfa1315d7d3164fb4e39956f2357ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5798ba0c0c0d5f191c36f410f298c3ce') in 0.005328 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Center 1.dae
+  artifactKey: Guid(ea3f0b0f36c78ca4282e2e49f378cef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Center 1.dae using Guid(ea3f0b0f36c78ca4282e2e49f378cef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f17d742b2b6cb138a459851dec795f04') in 0.004643 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 3.dae
+  artifactKey: Guid(1adf648894424ae47bca5445562efba8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Corner 3.dae using Guid(1adf648894424ae47bca5445562efba8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15d43dddc970701f9da228b99167bcb2') in 0.004393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Lift Highway.dae
+  artifactKey: Guid(2357264b94c408a409585f9979a3990c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Lift Highway.dae using Guid(2357264b94c408a409585f9979a3990c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c449d160f43d66615bf34a29b7d46be') in 0.005160 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway S-Curve.dae
+  artifactKey: Guid(a6f8c6c7f9b109c45b54b4ea3ab2256b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway S-Curve.dae using Guid(a6f8c6c7f9b109c45b54b4ea3ab2256b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd8c98c942b7cd25afe0fbb34ac77bba') in 0.005838 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Curve 1.dae
+  artifactKey: Guid(aebfc22149f8d2a45a601caf54845bba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Curve 1.dae using Guid(aebfc22149f8d2a45a601caf54845bba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a04250ade3d7313010a9659a0ac8fd8c') in 0.005134 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Cross Highway.dae
+  artifactKey: Guid(9737ab9f3cf9c0b4d87af4f5b0108b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Cross Highway.dae using Guid(9737ab9f3cf9c0b4d87af4f5b0108b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb765853475be2d5698972c0c3ca58a9') in 0.004800 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Straight 2.dae
+  artifactKey: Guid(6421912752fc45944a04fb09aae2e8a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Straight 2.dae using Guid(6421912752fc45944a04fb09aae2e8a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '797d040a65a8b36bbafbdaa4bcfb573b') in 0.006028 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Edge 3.dae
+  artifactKey: Guid(6b8e147014e34144f90043861e0abe99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Edge 3.dae using Guid(6b8e147014e34144f90043861e0abe99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3ff377b9e71675a01773994232268ca') in 0.004673 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Curve 2.dae
+  artifactKey: Guid(c8674672f487bf348a47866ff0632e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Curve 2.dae using Guid(c8674672f487bf348a47866ff0632e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c63cde84e997f2b764501f815bac56c') in 0.005030 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Road Curve.dae
+  artifactKey: Guid(391f4d072c0c3df4884006cdbef382ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Road Curve.dae using Guid(391f4d072c0c3df4884006cdbef382ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '141e4cc6f0d824b81ba3ce5990af1372') in 0.004970 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Center 3.dae
+  artifactKey: Guid(84f030ebdfeda2448bc8b294323ceeec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Parkinglot Center 3.dae using Guid(84f030ebdfeda2448bc8b294323ceeec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7bb8b5123472b297915e623031473a0') in 0.004716 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Straight 1.dae
+  artifactKey: Guid(d515ab1e7b3b8254b942625c58c86f91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Straight 1.dae using Guid(d515ab1e7b3b8254b942625c58c86f91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c37531b6c6118f031ea916e83c50fb3') in 0.004559 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Highway Cross Freeway.dae
+  artifactKey: Guid(0505729b78e21cd4487c9a4940bea4db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Highway Cross Freeway.dae using Guid(0505729b78e21cd4487c9a4940bea4db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b9e070d81b91f25e05e9dd39c5261b7') in 0.005512 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Join Road.dae
+  artifactKey: Guid(5548c48b8a63235488a0afe4b462749d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrokenVector/LowPolyRoadPack/Models/Freeway Join Road.dae using Guid(5548c48b8a63235488a0afe4b462749d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565268ce4cd912f7accd295638a3b1df') in 0.004977 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-Thread 0x2a031f000 may have been prematurely finalized
+Thread 0x29efc7000 may have been prematurely finalized
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.366 seconds
-Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+- Loaded All Assemblies, in  0.411 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.279 seconds
-Domain Reload Profiling: 645ms
-	BeginReloadAssembly (73ms)
+- Finished resetting the current domain, in  0.531 seconds
+Domain Reload Profiling: 942ms
+	BeginReloadAssembly (86ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (3ms)
+		DisableScriptedObjects (2ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (26ms)
-	RebuildCommonClasses (20ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (21ms)
 	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (11ms)
-	LoadAllAssembliesAndSetupDomain (255ms)
-		LoadAssemblies (115ms)
+	initialDomainReloadingComplete (13ms)
+	LoadAllAssembliesAndSetupDomain (284ms)
+		LoadAssemblies (139ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (161ms)
-			TypeCache.Refresh (159ms)
-				TypeCache.ScanAssembly (154ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (170ms)
+			TypeCache.Refresh (166ms)
+				TypeCache.ScanAssembly (159ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (2ms)
-	FinalizeReload (279ms)
+	FinalizeReload (531ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (142ms)
+		SetupLoadedEditorAssemblies (148ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (2ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (26ms)
-			ProcessInitializeOnLoadAttributes (102ms)
+			BeforeProcessingInitializeOnLoad (28ms)
+			ProcessInitializeOnLoadAttributes (106ms)
 			ProcessInitializeOnLoadMethodAttributes (8ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
@@ -240,76 +744,10 @@ Domain Reload Profiling: 645ms
 		AwakeInstancesAfterBackupRestoration (2ms)
 Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3062 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3534.
-Memory consumption went from 125.5 MB to 125.5 MB.
-Total: 2.088709 ms (FindLiveObjects: 0.108292 ms CreateObjectMapping: 0.045333 ms MarkObjects: 1.904042 ms  DeleteObjects: 0.030542 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x2a031f000 may have been prematurely finalized
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.342 seconds
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.283 seconds
-Domain Reload Profiling: 626ms
-	BeginReloadAssembly (73ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (2ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
-	RebuildCommonClasses (19ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (11ms)
-	LoadAllAssembliesAndSetupDomain (232ms)
-		LoadAssemblies (101ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (153ms)
-			TypeCache.Refresh (151ms)
-				TypeCache.ScanAssembly (146ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (284ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (149ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (26ms)
-			ProcessInitializeOnLoadAttributes (108ms)
-			ProcessInitializeOnLoadMethodAttributes (9ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3537.
-Memory consumption went from 130.7 MB to 130.6 MB.
-Total: 2.155291 ms (FindLiveObjects: 0.107625 ms CreateObjectMapping: 0.045417 ms MarkObjects: 1.966042 ms  DeleteObjects: 0.035833 ms)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3581.
+Memory consumption went from 129.0 MB to 128.9 MB.
+Total: 2.005500 ms (FindLiveObjects: 0.109875 ms CreateObjectMapping: 0.048916 ms MarkObjects: 1.817917 ms  DeleteObjects: 0.028333 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -328,17 +766,17 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-Thread 0x16dc7b000 may have been prematurely finalized
+Thread 0x28da0f000 may have been prematurely finalized
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.359 seconds
-Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+- Loaded All Assemblies, in  0.379 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.273 seconds
-Domain Reload Profiling: 632ms
-	BeginReloadAssembly (71ms)
+- Finished resetting the current domain, in  0.532 seconds
+Domain Reload Profiling: 912ms
+	BeginReloadAssembly (74ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
@@ -347,15 +785,163 @@ Domain Reload Profiling: 632ms
 	RebuildCommonClasses (20ms)
 	RebuildNativeTypeToScriptingClass (7ms)
 	initialDomainReloadingComplete (12ms)
-	LoadAllAssembliesAndSetupDomain (249ms)
-		LoadAssemblies (106ms)
+	LoadAllAssembliesAndSetupDomain (266ms)
+		LoadAssemblies (134ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (165ms)
-			TypeCache.Refresh (162ms)
-				TypeCache.ScanAssembly (157ms)
+		AnalyzeDomain (156ms)
+			TypeCache.Refresh (152ms)
+				TypeCache.ScanAssembly (148ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (533ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (158ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (30ms)
+			ProcessInitializeOnLoadAttributes (112ms)
+			ProcessInitializeOnLoadMethodAttributes (9ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (30.4 KB). Loaded Objects now: 3584.
+Memory consumption went from 133.9 MB to 133.8 MB.
+Total: 1.911417 ms (FindLiveObjects: 0.098667 ms CreateObjectMapping: 0.044875 ms MarkObjects: 1.740458 ms  DeleteObjects: 0.027167 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x28da0f000 may have been prematurely finalized
+Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.366 seconds
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.527 seconds
+Domain Reload Profiling: 893ms
+	BeginReloadAssembly (72ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (11ms)
+	LoadAllAssembliesAndSetupDomain (256ms)
+		LoadAssemblies (125ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (152ms)
+			TypeCache.Refresh (149ms)
+				TypeCache.ScanAssembly (144ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (527ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (159ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (30ms)
+			ProcessInitializeOnLoadAttributes (114ms)
+			ProcessInitializeOnLoadMethodAttributes (9ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3587.
+Memory consumption went from 138.7 MB to 138.7 MB.
+Total: 1.979208 ms (FindLiveObjects: 0.115083 ms CreateObjectMapping: 0.041458 ms MarkObjects: 1.790875 ms  DeleteObjects: 0.031458 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 666.875430 seconds.
+  path: Assets/Scripts/RoadGen.cs
+  artifactKey: Guid(28caa8537e83b412b8cd0c499107a1fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/RoadGen.cs using Guid(28caa8537e83b412b8cd0c499107a1fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f64504194b32349e3d1db84552d5d969') in 0.000813 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 159.598554 seconds.
+  path: Assets/Prefabs/LeftTurn.prefab
+  artifactKey: Guid(6713d719584154ff995a40108b8c6ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/LeftTurn.prefab using Guid(6713d719584154ff995a40108b8c6ef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552514028fb449006a060b6d65e0db5a') in 0.043028 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x28da0f000 may have been prematurely finalized
+Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.355 seconds
+Refreshing native plugins compatible for Editor in 0.84 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.281 seconds
+Domain Reload Profiling: 636ms
+	BeginReloadAssembly (73ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (11ms)
+	LoadAllAssembliesAndSetupDomain (243ms)
+		LoadAssemblies (103ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (162ms)
+			TypeCache.Refresh (159ms)
+				TypeCache.ScanAssembly (154ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (2ms)
-	FinalizeReload (273ms)
+	FinalizeReload (281ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
 		SetupLoadedEditorAssemblies (148ms)
@@ -363,283 +949,19 @@ Domain Reload Profiling: 632ms
 			InitializePlatformSupportModulesInManaged (2ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (27ms)
-			ProcessInitializeOnLoadAttributes (107ms)
-			ProcessInitializeOnLoadMethodAttributes (8ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3540.
-Memory consumption went from 135.6 MB to 135.6 MB.
-Total: 2.009333 ms (FindLiveObjects: 0.111333 ms CreateObjectMapping: 0.050542 ms MarkObjects: 1.814291 ms  DeleteObjects: 0.032750 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x16dc7b000 may have been prematurely finalized
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.356 seconds
-Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.289 seconds
-Domain Reload Profiling: 644ms
-	BeginReloadAssembly (72ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (3ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (26ms)
-	RebuildCommonClasses (20ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (11ms)
-	LoadAllAssembliesAndSetupDomain (245ms)
-		LoadAssemblies (110ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (157ms)
-			TypeCache.Refresh (154ms)
-				TypeCache.ScanAssembly (149ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (289ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (156ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (29ms)
-			ProcessInitializeOnLoadAttributes (112ms)
-			ProcessInitializeOnLoadMethodAttributes (9ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3543.
-Memory consumption went from 140.5 MB to 140.5 MB.
-Total: 1.866250 ms (FindLiveObjects: 0.090875 ms CreateObjectMapping: 0.039625 ms MarkObjects: 1.707625 ms  DeleteObjects: 0.027625 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x16dc7b000 may have been prematurely finalized
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.350 seconds
-Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.291 seconds
-Domain Reload Profiling: 641ms
-	BeginReloadAssembly (73ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (2ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (27ms)
-	RebuildCommonClasses (20ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (11ms)
-	LoadAllAssembliesAndSetupDomain (238ms)
-		LoadAssemblies (106ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (154ms)
-			TypeCache.Refresh (152ms)
-				TypeCache.ScanAssembly (147ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (291ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (155ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (29ms)
-			ProcessInitializeOnLoadAttributes (112ms)
-			ProcessInitializeOnLoadMethodAttributes (9ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.3 KB). Loaded Objects now: 3546.
-Memory consumption went from 145.4 MB to 145.4 MB.
-Total: 2.053916 ms (FindLiveObjects: 0.109042 ms CreateObjectMapping: 0.043625 ms MarkObjects: 1.866917 ms  DeleteObjects: 0.033916 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x16dc7b000 may have been prematurely finalized
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.343 seconds
-Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.283 seconds
-Domain Reload Profiling: 626ms
-	BeginReloadAssembly (69ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (2ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (25ms)
-	RebuildCommonClasses (19ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (11ms)
-	LoadAllAssembliesAndSetupDomain (237ms)
-		LoadAssemblies (102ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (156ms)
-			TypeCache.Refresh (154ms)
-				TypeCache.ScanAssembly (149ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (283ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (149ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (28ms)
-			ProcessInitializeOnLoadAttributes (106ms)
-			ProcessInitializeOnLoadMethodAttributes (9ms)
+			ProcessInitializeOnLoadAttributes (105ms)
+			ProcessInitializeOnLoadMethodAttributes (10ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
+		AwakeInstancesAfterBackupRestoration (3ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3549.
-Memory consumption went from 150.4 MB to 150.3 MB.
-Total: 2.068041 ms (FindLiveObjects: 0.118750 ms CreateObjectMapping: 0.043250 ms MarkObjects: 1.870292 ms  DeleteObjects: 0.035291 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x16dc7b000 may have been prematurely finalized
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image /Users/marlondassanayake/Desktop/self-driving-car3/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.399 seconds
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.511 seconds
-Domain Reload Profiling: 910ms
-	BeginReloadAssembly (84ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (3ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (34ms)
-	RebuildCommonClasses (21ms)
-	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (13ms)
-	LoadAllAssembliesAndSetupDomain (274ms)
-		LoadAssemblies (129ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (169ms)
-			TypeCache.Refresh (167ms)
-				TypeCache.ScanAssembly (161ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (511ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (153ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (29ms)
-			ProcessInitializeOnLoadAttributes (109ms)
-			ProcessInitializeOnLoadMethodAttributes (9ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3063 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3552.
-Memory consumption went from 155.3 MB to 155.3 MB.
-Total: 2.190208 ms (FindLiveObjects: 0.116667 ms CreateObjectMapping: 0.048583 ms MarkObjects: 1.983958 ms  DeleteObjects: 0.040584 ms)
+Unloading 22 unused Assets / (30.3 KB). Loaded Objects now: 3590.
+Memory consumption went from 144.3 MB to 144.2 MB.
+Total: 1.932833 ms (FindLiveObjects: 0.106833 ms CreateObjectMapping: 0.043791 ms MarkObjects: 1.752334 ms  DeleteObjects: 0.029458 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
