@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class NNet : MonoBehaviour
 {
+
     public Matrix<float> inputLayer = Matrix<float>.Build.Dense(1, 3); // old
 
     // Initialise input layer as 0 matrix

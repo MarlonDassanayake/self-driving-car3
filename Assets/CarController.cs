@@ -93,9 +93,9 @@ public class CarController : MonoBehaviour
 
        overallFitness = (totalDistanceTravelled*distanceMultipler)+(avgSpeed*avgSpeedMultiplier)+(((aSensor+bSensor+cSensor)/3)*sensorMultiplier);
 
-        if (timeSinceStart > 20 && overallFitness < 40) {
-            Death();
-        }
+        // if (timeSinceStart > 20 && overallFitness < 40) {
+        //     Death();
+        // }
 
         if (overallFitness >= 1000)
         {
@@ -116,21 +116,21 @@ public class CarController : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(r, out hit)) {
-            aSensor = hit.distance/20;
+            aSensor = hit.distance/35;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = b;
 
         if (Physics.Raycast(r, out hit)) {
-            bSensor = hit.distance/20;
+            bSensor = hit.distance/35;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = c;
 
         if (Physics.Raycast(r, out hit)) {
-            cSensor = hit.distance/20;
+            cSensor = hit.distance/35;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 

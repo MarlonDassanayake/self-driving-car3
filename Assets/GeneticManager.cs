@@ -6,6 +6,7 @@ using MathNet.Numerics.LinearAlgebra;
 
 public class GeneticManager : MonoBehaviour
 {
+
     [Header("References")]
 
     // Define a car controller object
