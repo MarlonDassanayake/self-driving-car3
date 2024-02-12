@@ -93,9 +93,9 @@ public class CarController : MonoBehaviour
 
        overallFitness = (totalDistanceTravelled*distanceMultipler)+(avgSpeed*avgSpeedMultiplier)+(((aSensor+bSensor+cSensor)/3)*sensorMultiplier);
 
-        if (timeSinceStart > 20 && overallFitness < 40) {
-            Death();
-        }
+        // if (timeSinceStart > 20 && overallFitness < 40) {
+        //     Death();
+        // }
 
         if (overallFitness >= 1000)
         {
@@ -116,21 +116,21 @@ public class CarController : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(r, out hit)) {
-            aSensor = hit.distance/20;
+            aSensor = hit.distance/40;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = b;
 
         if (Physics.Raycast(r, out hit)) {
-            bSensor = hit.distance/20;
+            bSensor = hit.distance/80;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = c;
 
         if (Physics.Raycast(r, out hit)) {
-            cSensor = hit.distance/20;
+            cSensor = hit.distance/40;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
@@ -141,6 +141,11 @@ public class CarController : MonoBehaviour
         inp = Vector3.Lerp(Vector3.zero,new Vector3(0,0,v*11.4f),0.02f);
         inp = transform.TransformDirection(inp);
         transform.position += inp;
+
+        if (transform.position.y > 52.5f)
+        {
+            transform.position = new Vector3(transform.position.x, 52.5f, transform.position.z);
+        }
 
         transform.eulerAngles += new Vector3(0, (h*90)*0.02f,0);
     }
