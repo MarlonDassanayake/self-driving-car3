@@ -83,7 +83,7 @@ public class CarController : MonoBehaviour
 
     private void Death ()
     {
-        GameObject.FindObjectOfType<GeneticManager>().Death(overallFitness, network);
+        GameObject.FindObjectOfType<GeneticManager>().Death(overallFitness, network, this);
     }
 
     private void CalculateFitness() {

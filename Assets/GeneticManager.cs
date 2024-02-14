@@ -10,6 +10,7 @@ public class GeneticManager : MonoBehaviour
 
     // Define a car controller object
     public CarController controller; // old BUT OK
+    public CarController[] controllers; // old BUT OK
 
     [Header("Controls")]
     public int initialPopulation = 85;
@@ -40,6 +41,8 @@ public class GeneticManager : MonoBehaviour
 
     private void CreatePopulation()
     {
+        // Fetch all of the car controllers.
+        controllers = FindObjectsOfType<CarController>();
         population = new NNet[initialPopulation];       // old but ok
         FillPopulationWithRandomValues(population, 0);  // old but ok
 
@@ -48,7 +51,15 @@ public class GeneticManager : MonoBehaviour
 
     private void ResetToCurrentGenome()
     {
-        controller.ResetWithNetwork(population[currentGenome]); //old but ok
+        //controller.ResetWithNetwork(population[currentGenome]); //old but ok
+        foreach(CarController car in controllers)
+            car.ResetWithNetwork(population[currentGenome]);
+    }
+
+    // Polymorphism - same method name with different signature.
+    private void ResetToCurrentGenome(CarController car)
+    {
+        car.ResetWithNetwork(population[currentGenome]); //old but ok
     }
 
     // generated a random population
@@ -62,7 +73,7 @@ public class GeneticManager : MonoBehaviour
         }
     }
 
-    public void Death (float fitness, NNet network)     // OK
+    public void Death (float fitness, NNet network, CarController car)     // OK
     {
 
         if (currentGenome < population.Length -1)
@@ -70,7 +81,7 @@ public class GeneticManager : MonoBehaviour
 
             population[currentGenome].fitness = fitness;
             currentGenome++;
-            ResetToCurrentGenome();
+            ResetToCurrentGenome(car);
 
         }
         else
