@@ -23,11 +23,17 @@ public class Acc1Output : MonoBehaviour
     
     public int lastElement = 0;
     
+
     void Update()
     {
         outputAcceleration.text = FindObjectOfType<GeneticManager>().controllers[0].a.ToString();
         outputSteering.text = FindObjectOfType<GeneticManager>().controllers[0].t.ToString();
         outputRuntime.text = FindObjectOfType<GeneticManager>().controllers[0].timeSinceStart.ToString();
+
+        if (backClickCount==0 && forwardClickCount==0)
+        {
+            outputPastRuntimes.text = FindObjectOfType<GeneticManager>().controllers[0].timeSinceStart.ToString();
+        }
 
         time1 = time2;
         time2 = FindObjectOfType<GeneticManager>().controllers[0].timeSinceStart;
