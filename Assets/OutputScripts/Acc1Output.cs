@@ -128,4 +128,3 @@ public class Acc1Output : MonoBehaviour
     }
    
 }
-
