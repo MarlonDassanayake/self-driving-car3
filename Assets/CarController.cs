@@ -75,10 +75,6 @@ public class CarController : MonoBehaviour
 
         CalculateFitness();
 
-        //a = 0;
-        //t = 0;
-
-
     }
 
     private void Death ()
