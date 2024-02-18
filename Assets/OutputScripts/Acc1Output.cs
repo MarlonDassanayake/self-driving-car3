@@ -26,17 +26,17 @@ public class Acc1Output : MonoBehaviour
 
     void Update()
     {
-        outputAcceleration.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].a.ToString();
-        outputSteering.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].t.ToString();
-        outputRuntime.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].timeSinceStart.ToString();
+        outputAcceleration.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].vehicleAccelerationValue.ToString();
+        outputSteering.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].vehicleSteeringDirection.ToString();
+        outputRuntime.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].elapsedTime.ToString();
 
         if (backClickCount==0 && forwardClickCount==0)
         {
-            outputPastRuntimes.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].timeSinceStart.ToString();
+            outputPastRuntimes.text = FindObjectOfType<GeneticAlgorithm>().controllers[0].elapsedTime.ToString();
         }
 
         time1 = time2;
-        time2 = FindObjectOfType<GeneticAlgorithm>().controllers[0].timeSinceStart;
+        time2 = FindObjectOfType<GeneticAlgorithm>().controllers[0].elapsedTime;
 
         if (time1>time2)
         {

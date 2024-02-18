@@ -59,7 +59,7 @@ public class GeneticAlgorithm : MonoBehaviour
         while (startingIndex < populationStartSize)
         {
             newPopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
-            newPopulation[startingIndex].Initialise(controller.LAYERS, controller.NEURONS);
+            newPopulation[startingIndex].Initialise(controller.layerCount, controller.neuronCount);
             startingIndex++;
         }
     }
@@ -171,8 +171,8 @@ public class GeneticAlgorithm : MonoBehaviour
             NeuralNetwork Child1 = (new GameObject().AddComponent<NeuralNetwork>());
             NeuralNetwork Child2 = (new GameObject().AddComponent<NeuralNetwork>());
 
-            Child1.Initialise(controller.LAYERS, controller.NEURONS);
-            Child2.Initialise(controller.LAYERS, controller.NEURONS);
+            Child1.Initialise(controller.layerCount, controller.neuronCount);
+            Child2.Initialise(controller.layerCount, controller.neuronCount);
 
             Child1.fitness = 0;
             Child2.fitness = 0;
@@ -227,7 +227,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         for (int i = 0; i < eliteSelectionCount; i++)
         {
-            newPopulation[naturallySelected] = population[i].InitialiseCopy(controller.LAYERS, controller.NEURONS);
+            newPopulation[naturallySelected] = population[i].InitialiseCopy(controller.layerCount, controller.neuronCount);
             newPopulation[naturallySelected].fitness = 0;
             naturallySelected++;
             

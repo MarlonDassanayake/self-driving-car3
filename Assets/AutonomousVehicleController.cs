@@ -8,20 +8,17 @@ public class AutonomousVehicleController : MonoBehaviour
     private Vector3 startPosition, startRotation;
     private NeuralNetwork network;
 
-    [Range(-1f,1f)]
-    public float a,t;
+    public float vehicleAccelerationValue, vehicleSteeringDirection;
 
-    public float timeSinceStart = 0f;
+    public float elapsedTime = 0f;
 
-    [Header("Fitness")]
-    public float overallFitness;
-    public float distanceMultipler = 1.4f;
-    public float avgSpeedMultiplier = 0.2f;
-    public float sensorMultiplier = 0.1f;
+    public int layerCount = 1;
+    public int neuronCount = 10;
 
-    [Header("Network Options")]
-    public int LAYERS = 1;
-    public int NEURONS = 10;
+    public float scaleFactorSensor = 0.1f;
+    public float scaleFactorSpeed = 0.2f;
+    public float scaleFactorDistance = 1.4f;
+    public float calculatedFitnessValue;
 
     private Vector3 lastPosition;
     private float totalDistanceTravelled;
@@ -47,11 +44,11 @@ public class AutonomousVehicleController : MonoBehaviour
 
     public void Reset() {
 
-        timeSinceStart = 0f;
+        elapsedTime = 0f;
         totalDistanceTravelled = 0f;
         avgSpeed = 0f;
         lastPosition = startPosition;
-        overallFitness = 0f;
+        calculatedFitnessValue = 0f;
         transform.position = startPosition;
         transform.eulerAngles = startRotation;
     }
@@ -66,12 +63,12 @@ public class AutonomousVehicleController : MonoBehaviour
         lastPosition = transform.position;
 
 
-        (a, t) = network.RunNetwork(aSensor, bSensor, cSensor);
+        (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(aSensor, bSensor, cSensor);
 
 
-        MoveCar(a,t);
+        MoveCar(vehicleAccelerationValue, vehicleSteeringDirection);
 
-        timeSinceStart += Time.deltaTime;
+        elapsedTime += Time.deltaTime;
 
         CalculateFitness();
 
@@ -83,21 +80,21 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void Death ()
     {
-        GameObject.FindObjectOfType<GeneticAlgorithm>().Death(overallFitness, network, this);
+        GameObject.FindObjectOfType<GeneticAlgorithm>().Death(calculatedFitnessValue, network, this);
     }
 
     private void CalculateFitness() {
 
         totalDistanceTravelled += Vector3.Distance(transform.position,lastPosition);
-        avgSpeed = totalDistanceTravelled/timeSinceStart;
+        avgSpeed = totalDistanceTravelled/elapsedTime;
 
-       overallFitness = (totalDistanceTravelled*distanceMultipler)+(avgSpeed*avgSpeedMultiplier)+(((aSensor+bSensor+cSensor)/3)*sensorMultiplier);
+       calculatedFitnessValue = (totalDistanceTravelled*scaleFactorDistance)+(avgSpeed*scaleFactorSpeed)+(((aSensor+bSensor+cSensor)/3)*scaleFactorSensor);
 
-        // if (timeSinceStart > 20 && overallFitness < 40) {
+        // if (elapsedTime > 20 && calculatedFitnessValue < 40) {
         //     Death();
         // }
 
-        if (overallFitness >= 1000)
+        if (calculatedFitnessValue >= 1000)
         {
             // At this point we could save the network to a JSON
             // This is also where the network stops when the fitness is too good

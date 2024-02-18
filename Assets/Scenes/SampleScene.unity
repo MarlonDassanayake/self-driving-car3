@@ -541,9 +541,9 @@ MonoBehaviour:
   t: 0
   timeSinceStart: 0
   overallFitness: 0
-  distanceMultipler: 1.4
-  avgSpeedMultiplier: 0.2
-  sensorMultiplier: 0.1
+  distanceMultipler: 1.39
+  avgSpeedMultiplier: 0.21
+  sensorMultiplier: 0.09
   LAYERS: 1
   NEURONS: 10
 --- !u!114 &149521257
@@ -1705,9 +1705,9 @@ MonoBehaviour:
   t: 0
   timeSinceStart: 0
   overallFitness: 0
-  distanceMultipler: 1.4
-  avgSpeedMultiplier: 0.2
-  sensorMultiplier: 0.1
+  distanceMultipler: 1.39
+  avgSpeedMultiplier: 0.21
+  sensorMultiplier: 0.09
   LAYERS: 1
   NEURONS: 10
 --- !u!114 &810679458
@@ -2573,13 +2573,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3311311801379132256}
   controllers: []
-  initialPopulation: 85
-  mutationRate: 0.055
-  bestAgentSelection: 8
-  worstAgentSelection: 3
-  numberToCrossover: 0
-  currentGeneration: 0
-  currentGenome: 0
+  generationIndex: 0
+  genomeIndex: 0
+  populationStartSize: 85
+  eliteSelectionCount: 8
+  weakSelectionAgent: 3
+  crossoverCount: 0
+  probabilityOfMutation: 0.055
 --- !u!1 &1565942091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,9 +3940,9 @@ MonoBehaviour:
   t: 0
   timeSinceStart: 0
   overallFitness: 0
-  distanceMultipler: 1.4
-  avgSpeedMultiplier: 0.2
-  sensorMultiplier: 0.1
+  distanceMultipler: 1.39
+  avgSpeedMultiplier: 0.21
+  sensorMultiplier: 0.09
   LAYERS: 1
   NEURONS: 10
 --- !u!114 &3311311801379132257
