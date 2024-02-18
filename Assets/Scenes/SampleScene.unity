@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2792218741957914664, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.09
+      value: -39.22
       objectReference: {fileID: 0}
     - target: {fileID: 2792218741957914664, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -537,15 +537,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e435ecccd01d64873bb81538ceeb7616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  t: 0
-  timeSinceStart: 0
-  overallFitness: 0
-  distanceMultipler: 1.39
-  avgSpeedMultiplier: 0.21
-  sensorMultiplier: 0.09
-  LAYERS: 1
-  NEURONS: 10
+  vehicleAccelerationValue: 0
+  vehicleSteeringDirection: 0
+  elapsedTime: 0
+  layerCount: 1
+  neuronCount: 10
+  scaleFactorSensor: 0.1
+  scaleFactorSpeed: 0.2
+  scaleFactorDistance: 1.4
+  calculatedFitnessValue: 0
 --- !u!114 &149521257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,15 +1701,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e435ecccd01d64873bb81538ceeb7616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  t: 0
-  timeSinceStart: 0
-  overallFitness: 0
-  distanceMultipler: 1.39
-  avgSpeedMultiplier: 0.21
-  sensorMultiplier: 0.09
-  LAYERS: 1
-  NEURONS: 10
+  vehicleAccelerationValue: 0
+  vehicleSteeringDirection: 0
+  elapsedTime: 0
+  layerCount: 1
+  neuronCount: 10
+  scaleFactorSensor: 0.1
+  scaleFactorSpeed: 0.2
+  scaleFactorDistance: 1.4
+  calculatedFitnessValue: 0
 --- !u!114 &810679458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,7 +2578,7 @@ MonoBehaviour:
   populationStartSize: 85
   eliteSelectionCount: 8
   weakSelectionAgent: 3
-  crossoverCount: 0
+  crossoverCount: 13
   probabilityOfMutation: 0.055
 --- !u!1 &1565942091
 GameObject:
@@ -3936,15 +3936,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e435ecccd01d64873bb81538ceeb7616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  t: 0
-  timeSinceStart: 0
-  overallFitness: 0
-  distanceMultipler: 1.39
-  avgSpeedMultiplier: 0.21
-  sensorMultiplier: 0.09
-  LAYERS: 1
-  NEURONS: 10
+  vehicleAccelerationValue: 0
+  vehicleSteeringDirection: 0
+  elapsedTime: 0
+  layerCount: 1
+  neuronCount: 10
+  scaleFactorSensor: 0.1
+  scaleFactorSpeed: 0.2
+  scaleFactorDistance: 1.4
+  calculatedFitnessValue: 0
 --- !u!114 &3311311801379132257
 MonoBehaviour:
   m_ObjectHideFlags: 0
