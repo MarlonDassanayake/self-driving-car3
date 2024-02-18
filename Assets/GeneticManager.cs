@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using MathNet.Numerics.LinearAlgebra;
-
 public class GeneticManager : MonoBehaviour
 {
     [Header("References")]
@@ -97,7 +95,6 @@ public class GeneticManager : MonoBehaviour
         genePool.Clear(); // clears the networks from the previous generation
         currentGeneration++;
         naturallySelected = 0;
-        // SortPopulation(); // old and obsolete
         MergeSortPopulation(population, 0, population.Length - 1);
 
         NNet[] newPopulation = PickBestPopulation();
@@ -118,21 +115,6 @@ public class GeneticManager : MonoBehaviour
     private void Mutate (NNet[] newPopulation)
     {
 
-        for (int i = 0; i < naturallySelected; i++) // old loop
-        {
-
-            for (int c = 0; c < newPopulation[i].weights.Count; c++)
-            {
-
-                if (Random.Range(0.0f, 1.0f) < mutationRate)
-                {
-                    newPopulation[i].weights[c] = MutateMatrix(newPopulation[i].weights[c]);
-                }
-
-            }
-
-        }
-
         // Randomly change 'mutate' the weights of some neural networks - based on the mutation rate
 
         for (int i = 0; i < naturallySelected; i++) 
@@ -152,24 +134,6 @@ public class GeneticManager : MonoBehaviour
 
     }
 
-    Matrix<float> MutateMatrix (Matrix<float> A)    // old
-    {
-
-        int randomPoints = Random.Range(1, (A.RowCount * A.ColumnCount) / 7);
-
-        Matrix<float> C = A;
-
-        for (int i = 0; i < randomPoints; i++)
-        {
-            int randomColumn = Random.Range(0, C.ColumnCount);
-            int randomRow = Random.Range(0, C.RowCount);
-
-            C[randomRow, randomColumn] = Mathf.Clamp(C[randomRow, randomColumn] + Random.Range(-1f, 1f), -1f, 1f);
-        }
-
-        return C;
-
-    }
 
     List<List<float>> ApplyMutationMatrix(List<List<float>> matrixA)
     {
@@ -219,23 +183,6 @@ public class GeneticManager : MonoBehaviour
             Child1.fitness = 0;
             Child2.fitness = 0;
 
-            
-            for (int w = 0; w < Child1.weights.Count; w++) // old loop
-            {
-
-                if (Random.Range(0.0f, 1.0f) < 0.5f)
-                {
-                    Child1.weights[w] = population[AIndex].weights[w];
-                    Child2.weights[w] = population[BIndex].weights[w];
-                }
-                else
-                {
-                    Child2.weights[w] = population[AIndex].weights[w];
-                    Child1.weights[w] = population[BIndex].weights[w];
-                }
-
-            }
-
             // Randomly swapping 'crossing over' weights in the neural network
             for (int w = 0; w < Child1.weights1.Count; w++) 
             {
@@ -249,23 +196,6 @@ public class GeneticManager : MonoBehaviour
                 {
                     Child2.weights1[w] = population[AIndex].weights1[w];
                     Child1.weights1[w] = population[BIndex].weights1[w];
-                }
-
-            }
-
-
-            for (int w = 0; w < Child1.biases.Count; w++) // old loop
-            {
-
-                if (Random.Range(0.0f, 1.0f) < 0.5f)
-                {
-                    Child1.biases[w] = population[AIndex].biases[w];
-                    Child2.biases[w] = population[BIndex].biases[w];
-                }
-                else
-                {
-                    Child2.biases[w] = population[AIndex].biases[w];
-                    Child1.biases[w] = population[BIndex].biases[w];
                 }
 
             }
@@ -335,25 +265,6 @@ public class GeneticManager : MonoBehaviour
 
     }
 
-    private void SortPopulation() // old and obsolete
-    {
-        // bubble sort - replace with merge sort
-        // also see aqa website for example advanced
-        // algorithms/techniques
-        for (int i = 0; i < population.Length; i++)
-        {
-            for (int j = i; j < population.Length; j++)
-            {
-                if (population[i].fitness < population[j].fitness)
-                {
-                    NNet temp = population[i];
-                    population[i] = population[j];
-                    population[j] = temp;
-                }
-            }
-        }
-
-    }
 
     private static void MergeSortPopulation(NNet[] arr, int left, int right) // done, to be annotated
     {
