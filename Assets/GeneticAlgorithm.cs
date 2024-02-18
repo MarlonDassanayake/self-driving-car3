@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class GeneticAlgorithm : MonoBehaviour
 {
-    [Header("References")]
 
     // Define an Autonomous Vehicle Controller object
     public AutonomousVehicleController controller; // old BUT OK
     public AutonomousVehicleController[] controllers; // old BUT OK
 
-    [Header("Controls")]
-    public int initialPopulation = 85;
-    [Range(0.0f, 1.0f)]
-    public float mutationRate = 0.055f;
-
-    [Header("Crossover Controls")]
-    public int bestAgentSelection = 8;
-    public int worstAgentSelection = 3;
-    public int numberToCrossover;
+    public int generationIndex = 0;
+    public int genomeIndex = 0;
+    public int populationStartSize = 85;
+    public int eliteSelectionCount = 8;
+    public int weakSelectionAgent = 3;
+    public int crossoverCount;
+    public float probabilityOfMutation = 0.055f;
 
     // Create a list of integers to represent the gene pool (the networks that are selected)
     private List<int> genePool = new List<int>(); // old BUT OK
@@ -27,10 +24,6 @@ public class GeneticAlgorithm : MonoBehaviour
 
     // Create an array of neural networks to represent the popultation
     private NeuralNetwork[] population;  // old but OK
-
-    [Header("Public View")]
-    public int currentGeneration;
-    public int currentGenome = 0;
 
     private void Start()
     {
@@ -41,7 +34,7 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         // Fetch all of the car controllers.
         controllers = FindObjectsOfType<AutonomousVehicleController>();
-        population = new NeuralNetwork[initialPopulation];       // old but ok
+        population = new NeuralNetwork[populationStartSize];       // old but ok
         FillPopulationWithRandomValues(population, 0);  // old but ok
 
         ResetToCurrentGenome();
@@ -49,21 +42,21 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void ResetToCurrentGenome()
     {
-        //controller.ResetWithNetwork(population[currentGenome]); //old but ok
+        //controller.ResetWithNetwork(population[genomeIndex]); //old but ok
         foreach(AutonomousVehicleController car in controllers)
-            car.ResetWithNetwork(population[currentGenome]);
+            car.ResetWithNetwork(population[genomeIndex]);
     }
 
     // Polymorphism - same method name with different signature.
     private void ResetToCurrentGenome(AutonomousVehicleController car)
     {
-        car.ResetWithNetwork(population[currentGenome]); //old but ok
+        car.ResetWithNetwork(population[genomeIndex]); //old but ok
     }
 
     // generated a random population
     private void FillPopulationWithRandomValues (NeuralNetwork[] newPopulation, int startingIndex)   
     {
-        while (startingIndex < initialPopulation)
+        while (startingIndex < populationStartSize)
         {
             newPopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
             newPopulation[startingIndex].Initialise(controller.LAYERS, controller.NEURONS);
@@ -74,11 +67,11 @@ public class GeneticAlgorithm : MonoBehaviour
     public void Death (float fitness, NeuralNetwork network, AutonomousVehicleController car)     // OK
     {
 
-        if (currentGenome < population.Length -1)
+        if (genomeIndex < population.Length -1)
         {
 
-            population[currentGenome].fitness = fitness;
-            currentGenome++;
+            population[genomeIndex].fitness = fitness;
+            genomeIndex++;
             ResetToCurrentGenome(car);
 
         }
@@ -93,7 +86,7 @@ public class GeneticAlgorithm : MonoBehaviour
     private void RePopulate()
     {
         genePool.Clear(); // clears the networks from the previous generation
-        currentGeneration++;
+        generationIndex++;
         naturallySelected = 0;
         MergeSortPopulation(population, 0, population.Length - 1);
 
@@ -106,7 +99,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         population = newPopulation;
 
-        currentGenome = 0;
+        genomeIndex = 0;
 
         ResetToCurrentGenome();
 
@@ -115,7 +108,8 @@ public class GeneticAlgorithm : MonoBehaviour
     private void Mutate (NeuralNetwork[] newPopulation)
     {
 
-        // Randomly change 'mutate' the weights of some neural networks - based on the mutation rate
+        // Randomly change 'mutate' the weights of some neural networks - 
+        // based on the probability of mutation
 
         for (int i = 0; i < naturallySelected; i++) 
         {
@@ -123,7 +117,7 @@ public class GeneticAlgorithm : MonoBehaviour
             for (int c = 0; c < newPopulation[i].weights1.Count; c++)
             {
 
-                if (Random.Range(0.0f, 1.0f) < mutationRate)
+                if (Random.Range(0.0f, 1.0f) < probabilityOfMutation)
                 {
                     newPopulation[i].weights1[c] = ApplyMutationMatrix(newPopulation[i].weights1[c]);
                 }
@@ -157,7 +151,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void Crossover (NeuralNetwork[] newPopulation)
     {
-        for (int i = 0; i < numberToCrossover; i+=2)
+        for (int i = 0; i < crossoverCount; i+=2)
         {
             int AIndex = i;
             int BIndex = i + 1;
@@ -229,9 +223,9 @@ public class GeneticAlgorithm : MonoBehaviour
     private NeuralNetwork[] PickBestPopulation()
     {
         // Create a temporary array to use in this subroutine
-        NeuralNetwork[] newPopulation = new NeuralNetwork[initialPopulation];
+        NeuralNetwork[] newPopulation = new NeuralNetwork[populationStartSize];
 
-        for (int i = 0; i < bestAgentSelection; i++)
+        for (int i = 0; i < eliteSelectionCount; i++)
         {
             newPopulation[naturallySelected] = population[i].InitialiseCopy(controller.LAYERS, controller.NEURONS);
             newPopulation[naturallySelected].fitness = 0;
@@ -246,8 +240,8 @@ public class GeneticAlgorithm : MonoBehaviour
 
         }
 
-        // add selected worst neural networks to the next generation
-        for (int i = 0; i < worstAgentSelection; i++)
+        // add selected weak neural networks to the next generation
+        for (int i = 0; i < weakSelectionAgent; i++)
         {
             int last = population.Length - 1;
             last -= i;
