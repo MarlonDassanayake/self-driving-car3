@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(NNet))]
-public class CarController : MonoBehaviour
+[RequireComponent(typeof(NeuralNetwork))]
+public class AutonomousVehicleController : MonoBehaviour
 {
     private Vector3 startPosition, startRotation;
-    private NNet network;
+    private NeuralNetwork network;
 
     [Range(-1f,1f)]
     public float a,t;
@@ -32,12 +32,12 @@ public class CarController : MonoBehaviour
     private void Awake() {
         startPosition = transform.position;
         startRotation = transform.eulerAngles;
-        network = GetComponent<NNet>();
+        network = GetComponent<NeuralNetwork>();
 
         
     }
 
-    public void ResetWithNetwork (NNet net)
+    public void ResetWithNetwork (NeuralNetwork net)
     {
         network = net;
         Reset();
@@ -83,7 +83,7 @@ public class CarController : MonoBehaviour
 
     private void Death ()
     {
-        GameObject.FindObjectOfType<GeneticManager>().Death(overallFitness, network, this);
+        GameObject.FindObjectOfType<GeneticAlgorithm>().Death(overallFitness, network, this);
     }
 
     private void CalculateFitness() {

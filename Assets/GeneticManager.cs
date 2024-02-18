@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneticManager : MonoBehaviour
+public class GeneticAlgorithm : MonoBehaviour
 {
     [Header("References")]
 
-    // Define a car controller object
-    public CarController controller; // old BUT OK
-    public CarController[] controllers; // old BUT OK
+    // Define an Autonomous Vehicle Controller object
+    public AutonomousVehicleController controller; // old BUT OK
+    public AutonomousVehicleController[] controllers; // old BUT OK
 
     [Header("Controls")]
     public int initialPopulation = 85;
@@ -26,7 +26,7 @@ public class GeneticManager : MonoBehaviour
     private int naturallySelected; // A counter
 
     // Create an array of neural networks to represent the popultation
-    private NNet[] population;  // old but OK
+    private NeuralNetwork[] population;  // old but OK
 
     [Header("Public View")]
     public int currentGeneration;
@@ -40,8 +40,8 @@ public class GeneticManager : MonoBehaviour
     private void CreatePopulation()
     {
         // Fetch all of the car controllers.
-        controllers = FindObjectsOfType<CarController>();
-        population = new NNet[initialPopulation];       // old but ok
+        controllers = FindObjectsOfType<AutonomousVehicleController>();
+        population = new NeuralNetwork[initialPopulation];       // old but ok
         FillPopulationWithRandomValues(population, 0);  // old but ok
 
         ResetToCurrentGenome();
@@ -50,28 +50,28 @@ public class GeneticManager : MonoBehaviour
     private void ResetToCurrentGenome()
     {
         //controller.ResetWithNetwork(population[currentGenome]); //old but ok
-        foreach(CarController car in controllers)
+        foreach(AutonomousVehicleController car in controllers)
             car.ResetWithNetwork(population[currentGenome]);
     }
 
     // Polymorphism - same method name with different signature.
-    private void ResetToCurrentGenome(CarController car)
+    private void ResetToCurrentGenome(AutonomousVehicleController car)
     {
         car.ResetWithNetwork(population[currentGenome]); //old but ok
     }
 
     // generated a random population
-    private void FillPopulationWithRandomValues (NNet[] newPopulation, int startingIndex)   
+    private void FillPopulationWithRandomValues (NeuralNetwork[] newPopulation, int startingIndex)   
     {
         while (startingIndex < initialPopulation)
         {
-            newPopulation[startingIndex] = (new GameObject().AddComponent<NNet>());
+            newPopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
             newPopulation[startingIndex].Initialise(controller.LAYERS, controller.NEURONS);
             startingIndex++;
         }
     }
 
-    public void Death (float fitness, NNet network, CarController car)     // OK
+    public void Death (float fitness, NeuralNetwork network, AutonomousVehicleController car)     // OK
     {
 
         if (currentGenome < population.Length -1)
@@ -97,7 +97,7 @@ public class GeneticManager : MonoBehaviour
         naturallySelected = 0;
         MergeSortPopulation(population, 0, population.Length - 1);
 
-        NNet[] newPopulation = PickBestPopulation();
+        NeuralNetwork[] newPopulation = PickBestPopulation();
 
         Crossover(newPopulation);
         Mutate(newPopulation);
@@ -112,7 +112,7 @@ public class GeneticManager : MonoBehaviour
 
     }
 
-    private void Mutate (NNet[] newPopulation)
+    private void Mutate (NeuralNetwork[] newPopulation)
     {
 
         // Randomly change 'mutate' the weights of some neural networks - based on the mutation rate
@@ -155,7 +155,7 @@ public class GeneticManager : MonoBehaviour
 
     }
 
-    private void Crossover (NNet[] newPopulation)
+    private void Crossover (NeuralNetwork[] newPopulation)
     {
         for (int i = 0; i < numberToCrossover; i+=2)
         {
@@ -174,8 +174,8 @@ public class GeneticManager : MonoBehaviour
                 }
             }
 
-            NNet Child1 = (new GameObject().AddComponent<NNet>());
-            NNet Child2 = (new GameObject().AddComponent<NNet>());
+            NeuralNetwork Child1 = (new GameObject().AddComponent<NeuralNetwork>());
+            NeuralNetwork Child2 = (new GameObject().AddComponent<NeuralNetwork>());
 
             Child1.Initialise(controller.LAYERS, controller.NEURONS);
             Child2.Initialise(controller.LAYERS, controller.NEURONS);
@@ -226,10 +226,10 @@ public class GeneticManager : MonoBehaviour
         }
     }
 
-    private NNet[] PickBestPopulation()
+    private NeuralNetwork[] PickBestPopulation()
     {
         // Create a temporary array to use in this subroutine
-        NNet[] newPopulation = new NNet[initialPopulation];
+        NeuralNetwork[] newPopulation = new NeuralNetwork[initialPopulation];
 
         for (int i = 0; i < bestAgentSelection; i++)
         {
@@ -266,7 +266,7 @@ public class GeneticManager : MonoBehaviour
     }
 
 
-    private static void MergeSortPopulation(NNet[] arr, int left, int right) // done, to be annotated
+    private static void MergeSortPopulation(NeuralNetwork[] arr, int left, int right) // done, to be annotated
     {
         if (left < right)
         {
@@ -279,13 +279,13 @@ public class GeneticManager : MonoBehaviour
         }
     }
 
-    private static void Merge(NNet[] arr, int left, int middle, int right)  // done, to be annotated
+    private static void Merge(NeuralNetwork[] arr, int left, int middle, int right)  // done, to be annotated
     {
         int n1 = middle - left + 1;
         int n2 = right - middle;
 
-        NNet[] leftArr = new NNet[n1];
-        NNet[] rightArr = new NNet[n2];
+        NeuralNetwork[] leftArr = new NeuralNetwork[n1];
+        NeuralNetwork[] rightArr = new NeuralNetwork[n2];
 
         for (int x = 0; x < n1; ++x)
         {

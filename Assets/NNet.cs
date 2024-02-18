@@ -6,7 +6,7 @@ using System;
 
 using Random = UnityEngine.Random;
 
-public class NNet : MonoBehaviour
+public class NeuralNetwork : MonoBehaviour
 {
 
     // Initialise input layer as 0 matrix
@@ -115,10 +115,10 @@ public class NNet : MonoBehaviour
 
     }
 
-    public NNet InitialiseCopy (int hiddenLayerCount, int hiddenNeuronCount)
+    public NeuralNetwork InitialiseCopy (int hiddenLayerCount, int hiddenNeuronCount)
     {
         
-        NNet newNetwork = (new GameObject().AddComponent<NNet>());
+        NeuralNetwork newNetwork = (new GameObject().AddComponent<NeuralNetwork>());
         
         // Create a new list of matrices to represent the new weights
         List<List<List<float>>> newWeights1 = new List<List<List<float>>>();
