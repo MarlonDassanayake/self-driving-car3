@@ -60,10 +60,10 @@ public class NeuralNetwork : MonoBehaviour
     }
 
 
-    public void Initialise (int hiddenLayerCount, int hiddenNeuronCount)
+    public void Initialise (int layerCount, int neuronCount)
     {
 
-        // Reset each component of the nerual network
+        // Reset each component of the neural network
         // so that each element in input and output layer matrices are 0
         // and the biases, weights and hiddenLayers are empty
 
@@ -75,11 +75,11 @@ public class NeuralNetwork : MonoBehaviour
 
         // Create the hidden layers 
         // (populate, the required number of hidden layers with values)
-        for (int i = 0; i <= hiddenLayerCount; i++)
+        for (int i = 0; i <= layerCount; i++)
         {
 
             // Create neurons for each indivdual hidden layer
-            List<List<float>> individualHiddenLayer = CreateMatrix(1,hiddenNeuronCount);
+            List<List<float>> individualHiddenLayer = CreateMatrix(1,neuronCount);
             hiddenLayers1.Add(individualHiddenLayer);
             biases1.Add(Random.Range(-1f, 1f));  
 
@@ -87,15 +87,15 @@ public class NeuralNetwork : MonoBehaviour
             // holds the correct amount of weights (to be suitable with the input layer)
             if (i == 0)
             {
-                List<List<float>> inputLayerToHidden1 = CreateMatrix(3, hiddenNeuronCount);
+                List<List<float>> inputLayerToHidden1 = CreateMatrix(3, neuronCount);
                 weights1.Add(inputLayerToHidden1);    
             }
 
-            List<List<float>> HiddenLayersLink = CreateMatrix(hiddenNeuronCount, hiddenNeuronCount);
+            List<List<float>> HiddenLayersLink = CreateMatrix(neuronCount, neuronCount);
             weights1.Add(HiddenLayersLink); 
         }
 
-        List<List<float>> weightForOutputLayer = CreateMatrix(hiddenNeuronCount, 2);
+        List<List<float>> weightForOutputLayer = CreateMatrix(neuronCount, 2);
         weights1.Add(weightForOutputLayer); 
         biases1.Add(Random.Range(-1f, 1f));  
 
@@ -103,7 +103,7 @@ public class NeuralNetwork : MonoBehaviour
 
     }
 
-    public NeuralNetwork InitialiseCopy (int hiddenLayerCount, int hiddenNeuronCount)
+    public NeuralNetwork InitialiseCopy (int layerCount, int neuronCount)
     {
         
         NeuralNetwork newNetwork = (new GameObject().AddComponent<NeuralNetwork>());
@@ -134,13 +134,13 @@ public class NeuralNetwork : MonoBehaviour
         newNetwork.weights1 = newWeights1;
         newNetwork.biases1 = newBiases1;
 
-        newNetwork.InitialiseHidden(hiddenLayerCount, hiddenNeuronCount); 
+        newNetwork.InitialiseHidden(layerCount, neuronCount); 
 
         // return newNetwork.
         return newNetwork;
     }
 
-    public void InitialiseHidden (int hiddenLayerCount, int hiddenNeuronCount)
+    public void InitialiseHidden (int layerCount, int neuronCount)
     {
 
         // Reset input layer, output layer and hidden layers.
@@ -149,10 +149,10 @@ public class NeuralNetwork : MonoBehaviour
         hiddenLayers1.Clear();
 
         // Copy the hidden layers
-        for (int i = 0; i < hiddenLayerCount + 1; i ++)
+        for (int i = 0; i < layerCount + 1; i ++)
         {
 
-            List<List<float>> newHiddenLayer1 = CreateMatrix(1, hiddenNeuronCount);
+            List<List<float>> newHiddenLayer1 = CreateMatrix(1, neuronCount);
             hiddenLayers1.Add(newHiddenLayer1);
 
         }
