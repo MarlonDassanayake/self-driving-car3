@@ -70,26 +70,42 @@ public class AutonomousVehicleController : MonoBehaviour
 
         elapsedTime += Time.deltaTime;
 
-        CalculateFitness();
+        UpdateVehicleData();
 
 
     }
 
-    private void CalculateFitness() {
-
-        distanceValue += Vector3.Distance(transform.position,lastPosition);
-        speedValue = distanceValue/elapsedTime;
-
-       calculatedFitnessValue = (distanceValue*scaleFactorDistance)+(speedValue*scaleFactorSpeed)+(((rightRayValue+straightRayValue+leftRayValue)/3)*scaleFactorSensor);
+    private void UpdateVehicleData() 
+    {
+        UpdateDistanceValue();
+        UpdateSpeedValue();
+        UpdateCalculatedFitnessValue();
 
         if (calculatedFitnessValue >= 1000)
         {
-            // At this point we could save the network to a JSON
-            // This is also where the network stops when the fitness is too good
             GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);;
         }
-
     }
+
+    private void UpdateDistanceValue() 
+    {
+        distanceValue += Vector3.Distance(transform.position, lastPosition);
+    }
+
+    private void UpdateSpeedValue() {
+        float elapsedTime = Time.deltaTime;
+        if (elapsedTime > 0) 
+        {
+            speedValue = distanceValue / elapsedTime;
+        }
+    }
+
+    private void UpdateCalculatedFitnessValue() 
+    {
+        float averageRayValue = (rightRayValue + straightRayValue + leftRayValue) / 3f;
+        calculatedFitnessValue = (distanceValue * scaleFactorDistance) + (speedValue * scaleFactorSpeed) + (averageRayValue * scaleFactorSensor);
+    }
+
 
     private void GetSensorValues() {
         // Define ray directions for right, straight, and left
