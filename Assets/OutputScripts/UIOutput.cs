@@ -101,14 +101,7 @@ public class UIOutput : MonoBehaviour
  
         public void Push (float item)
         {
-            if (top >= MAXSize)
-            {
-                //throw new InvalidOperationException("Stack Overflow");
-            }
-            else
-            {
-                stack[++top] = item;
-            }
+            stack[++top] = item;
         }
  
         public float Pop()
