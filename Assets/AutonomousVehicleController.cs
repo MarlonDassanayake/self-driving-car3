@@ -21,10 +21,10 @@ public class AutonomousVehicleController : MonoBehaviour
     public float calculatedFitnessValue;
 
     private Vector3 lastPosition;
-    private float totalDistanceTravelled;
-    private float avgSpeed;
+    public float distanceValue;
+    public float speedValue;
 
-    private float aSensor,bSensor,cSensor;
+    public float rightRayValue,straightRayValue,leftRayValue;
 
     private void Awake() {
         startPosition = transform.position;
@@ -45,8 +45,8 @@ public class AutonomousVehicleController : MonoBehaviour
     public void Reset() {
 
         elapsedTime = 0f;
-        totalDistanceTravelled = 0f;
-        avgSpeed = 0f;
+        distanceValue = 0f;
+        speedValue = 0f;
         lastPosition = startPosition;
         calculatedFitnessValue = 0f;
         transform.position = startPosition;
@@ -63,7 +63,7 @@ public class AutonomousVehicleController : MonoBehaviour
         lastPosition = transform.position;
 
 
-        (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(aSensor, bSensor, cSensor);
+        (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
 
 
         MoveCar(vehicleAccelerationValue, vehicleSteeringDirection);
@@ -85,10 +85,10 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void CalculateFitness() {
 
-        totalDistanceTravelled += Vector3.Distance(transform.position,lastPosition);
-        avgSpeed = totalDistanceTravelled/elapsedTime;
+        distanceValue += Vector3.Distance(transform.position,lastPosition);
+        speedValue = distanceValue/elapsedTime;
 
-       calculatedFitnessValue = (totalDistanceTravelled*scaleFactorDistance)+(avgSpeed*scaleFactorSpeed)+(((aSensor+bSensor+cSensor)/3)*scaleFactorSensor);
+       calculatedFitnessValue = (distanceValue*scaleFactorDistance)+(speedValue*scaleFactorSpeed)+(((rightRayValue+straightRayValue+leftRayValue)/3)*scaleFactorSensor);
 
         // if (elapsedTime > 20 && calculatedFitnessValue < 40) {
         //     Death();
@@ -113,21 +113,21 @@ public class AutonomousVehicleController : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(r, out hit)) {
-            aSensor = hit.distance/40;
+            rightRayValue = hit.distance/40;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = b;
 
         if (Physics.Raycast(r, out hit)) {
-            bSensor = hit.distance/80;
+            straightRayValue = hit.distance/80;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 
         r.direction = c;
 
         if (Physics.Raycast(r, out hit)) {
-            cSensor = hit.distance/40;
+            leftRayValue = hit.distance/40;
             Debug.DrawLine(r.origin, hit.point, Color.red);
         }
 

@@ -546,6 +546,9 @@ MonoBehaviour:
   scaleFactorSpeed: 0.2
   scaleFactorDistance: 1.4
   calculatedFitnessValue: 0
+  rightRayValue: 0
+  straightRayValue: 0
+  leftRayValue: 0
 --- !u!114 &149521257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1710,6 +1713,9 @@ MonoBehaviour:
   scaleFactorSpeed: 0.2
   scaleFactorDistance: 1.4
   calculatedFitnessValue: 0
+  rightRayValue: 0
+  straightRayValue: 0
+  leftRayValue: 0
 --- !u!114 &810679458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3945,6 +3951,9 @@ MonoBehaviour:
   scaleFactorSpeed: 0.2
   scaleFactorDistance: 1.4
   calculatedFitnessValue: 0
+  rightRayValue: 0
+  straightRayValue: 0
+  leftRayValue: 0
 --- !u!114 &3311311801379132257
 MonoBehaviour:
   m_ObjectHideFlags: 0
