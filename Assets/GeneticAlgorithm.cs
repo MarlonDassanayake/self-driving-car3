@@ -18,7 +18,7 @@ public class GeneticAlgorithm : MonoBehaviour
     public float probabilityOfMutation = 0.055f;
 
     // Create a list of integers to represent the gene pool (the networks that are selected)
-    private List<int> genePool = new List<int>(); // old BUT OK
+    private List<int> selectedNetworks = new List<int>(); // old BUT OK
     
     private int naturalSelectionIndex; // A counter
 
@@ -77,7 +77,7 @@ public class GeneticAlgorithm : MonoBehaviour
     
     private void GenerateNextPopulation()
     {
-        genePool.Clear(); // clears the networks from the previous generation
+        selectedNetworks.Clear(); // clears the networks from the previous generation
         generationIndex++;
         naturalSelectionIndex = 0;
         MergeSortPopulation(vehiclePopulation, 0, vehiclePopulation.Length - 1);
@@ -148,13 +148,13 @@ public class GeneticAlgorithm : MonoBehaviour
             int parentIndexA = i;
             int parentIndexB = i + 1;
 
-            // Ensure unique parents if genePool is not empty
-            if (genePool.Count >= 1)
+            // Ensure unique parents if selectedNetworks is not empty
+            if (selectedNetworks.Count >= 1)
             {
                 while (parentIndexA == parentIndexB)
                 {
-                    parentIndexA = genePool[Random.Range(0, genePool.Count)];
-                    parentIndexB = genePool[Random.Range(0, genePool.Count)];
+                    parentIndexA = selectedNetworks[Random.Range(0, selectedNetworks.Count)];
+                    parentIndexB = selectedNetworks[Random.Range(0, selectedNetworks.Count)];
                 }
             }
 
@@ -230,7 +230,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
             for (int count = 0; count < fitnessScaled; count++)
             {
-                genePool.Add(index);
+                selectedNetworks.Add(index);
             }
         }
     }
@@ -246,7 +246,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
             for (int count = 0; count < fitnessScaled; count++)
             {
-                genePool.Add(lastIndex);
+                selectedNetworks.Add(lastIndex);
             }
         }
     }
