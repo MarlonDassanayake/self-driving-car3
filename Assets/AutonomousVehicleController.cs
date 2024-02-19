@@ -26,12 +26,11 @@ public class AutonomousVehicleController : MonoBehaviour
 
     public float rightRayValue,straightRayValue,leftRayValue;
 
-    private void Awake() {
+    private void Awake() 
+    {
         startPosition = transform.position;
         startRotation = transform.eulerAngles;
         network = GetComponent<NeuralNetwork>();
-
-        
     }
 
     public void ResetWithNetwork (NeuralNetwork net)
@@ -42,7 +41,8 @@ public class AutonomousVehicleController : MonoBehaviour
 
     
 
-    public void Reset() {
+    public void Reset() 
+    {
 
         elapsedTime = 0f;
         distanceValue = 0f;
@@ -53,11 +53,13 @@ public class AutonomousVehicleController : MonoBehaviour
         transform.eulerAngles = startRotation;
     }
 
-    private void OnCollisionEnter (Collision collision) {
+    private void OnCollisionEnter (Collision collision) 
+    {
         GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+    {
 
         GetSensorValues();
         lastPosition = transform.position;
@@ -83,7 +85,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
         if (calculatedFitnessValue >= 1000)
         {
-            GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);;
+            GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
         }
     }
 
@@ -92,7 +94,8 @@ public class AutonomousVehicleController : MonoBehaviour
         distanceValue += Vector3.Distance(transform.position, lastPosition);
     }
 
-    private void UpdateSpeedValue() {
+    private void UpdateSpeedValue() 
+    {
         float elapsedTime = Time.deltaTime;
         if (elapsedTime > 0) 
         {
@@ -109,7 +112,8 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void GetSensorValues() {
         // Define ray directions for right, straight, and left
-        Vector3[] directions = { 
+        Vector3[] directions = 
+        { 
             transform.forward + transform.right, 
             transform.forward, 
             transform.forward - transform.right 
@@ -119,16 +123,19 @@ public class AutonomousVehicleController : MonoBehaviour
         float[] rayLengths = { 40f, 80f, 40f };
 
         // Perform raycasting for each direction
-        for (int i = 0; i < directions.Length; i++) {
+        for (int i = 0; i < directions.Length; i++) 
+        {
             Ray ray = new Ray(transform.position, directions[i]);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit)) 
+            {
                 float standardDistance = hit.distance / rayLengths[i];
                 Debug.DrawLine(ray.origin, hit.point, Color.red);
                 
                 // Assign the distance value based on direction
-                switch (i) {
+                switch (i) 
+                {
                     case 0:
                         rightRayValue = standardDistance;
                         break;
@@ -150,7 +157,8 @@ public class AutonomousVehicleController : MonoBehaviour
         movement = transform.TransformDirection(movement);
         transform.position += movement;
 
-        if (transform.position.y > 52.5f) {
+        if (transform.position.y > 52.5f) 
+        {
             transform.position = new Vector3(transform.position.x, 52.5f, transform.position.z);
         }
 
