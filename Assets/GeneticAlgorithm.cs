@@ -53,7 +53,7 @@ public class GeneticAlgorithm : MonoBehaviour
         while (startingIndex < populationStartSize)
         {
             updatedVehiclePopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
-            updatedVehiclePopulation[startingIndex].Initialise(controller.layerCount, controller.neuronCount);
+            updatedVehiclePopulation[startingIndex].CreateNeuralNetwork(controller.layerCount, controller.neuronCount);
             startingIndex++;
         }
     }
@@ -171,7 +171,7 @@ public class GeneticAlgorithm : MonoBehaviour
     private NeuralNetwork CreateChild()
     {
         NeuralNetwork child = (new GameObject().AddComponent<NeuralNetwork>());
-        child.Initialise(controller.layerCount, controller.neuronCount);
+        child.CreateNeuralNetwork(controller.layerCount, controller.neuronCount);
         child.fitness = 0;
         return child;
     }

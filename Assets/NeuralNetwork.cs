@@ -60,7 +60,7 @@ public class NeuralNetwork : MonoBehaviour
     }
 
 
-    public void Initialise (int layerCount, int neuronCount)
+    public void CreateNeuralNetwork (int layerCount, int neuronCount)
     {
 
         // Reset each component of the neural network
