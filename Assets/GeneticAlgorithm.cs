@@ -149,76 +149,72 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-    private void Crossover (NeuralNetwork[] newPopulation)
+private void Crossover(NeuralNetwork[] newPopulation)
+{
+    for (int i = 0; i < crossoverCount; i += 2)
     {
-        for (int i = 0; i < crossoverCount; i+=2)
+        int parentIndexA = i;
+        int parentIndexB = i + 1;
+
+        // Ensure unique parents if genePool is not empty
+        if (genePool.Count >= 1)
         {
-            int AIndex = i;
-            int BIndex = i + 1;
-
-            if (genePool.Count >= 1)
+            while (parentIndexA == parentIndexB)
             {
-                for (int l = 0; l < 100; l++)
-                {
-                    AIndex = genePool[Random.Range(0, genePool.Count)];
-                    BIndex = genePool[Random.Range(0, genePool.Count)];
-
-                    if (AIndex != BIndex)
-                        break;
-                }
+                parentIndexA = genePool[Random.Range(0, genePool.Count)];
+                parentIndexB = genePool[Random.Range(0, genePool.Count)];
             }
+        }
 
-            NeuralNetwork Child1 = (new GameObject().AddComponent<NeuralNetwork>());
-            NeuralNetwork Child2 = (new GameObject().AddComponent<NeuralNetwork>());
+        NeuralNetwork firstChild = CreateChild();
+        NeuralNetwork secondChild = CreateChild();
 
-            Child1.Initialise(controller.layerCount, controller.neuronCount);
-            Child2.Initialise(controller.layerCount, controller.neuronCount);
+        SwapWeightsAndBiases(firstChild, secondChild, parentIndexA, parentIndexB);
 
-            Child1.fitness = 0;
-            Child2.fitness = 0;
+        newPopulation[naturallySelected++] = firstChild;
+        newPopulation[naturallySelected++] = secondChild;
+    }
+}
 
-            // Randomly swapping 'crossing over' weights in the neural network
-            for (int w = 0; w < Child1.weights1.Count; w++) 
-            {
+private NeuralNetwork CreateChild()
+{
+    NeuralNetwork child = (new GameObject().AddComponent<NeuralNetwork>());
+    child.Initialise(controller.layerCount, controller.neuronCount);
+    child.fitness = 0;
+    return child;
+}
 
-                if (Random.Range(0.0f, 1.0f) < 0.5f)
-                {
-                    Child1.weights1[w] = population[AIndex].weights1[w];
-                    Child2.weights1[w] = population[BIndex].weights1[w];
-                }
-                else
-                {
-                    Child2.weights1[w] = population[AIndex].weights1[w];
-                    Child1.weights1[w] = population[BIndex].weights1[w];
-                }
-
-            }
-
-            // Randomly swapping 'crossing over' biases in the neural network
-            for (int w = 0; w < Child1.biases1.Count; w++) // old loop
-            {
-
-                if (Random.Range(0.0f, 1.0f) < 0.5f)
-                {
-                    Child1.biases1[w] = population[AIndex].biases1[w];
-                    Child2.biases1[w] = population[BIndex].biases1[w];
-                }
-                else
-                {
-                    Child2.biases1[w] = population[AIndex].biases1[w];
-                    Child1.biases1[w] = population[BIndex].biases1[w];
-                }
-
-            }
-
-            newPopulation[naturallySelected] = Child1;
-            naturallySelected++;
-
-            newPopulation[naturallySelected] = Child2;
-            naturallySelected++;
-
+private void SwapWeightsAndBiases(NeuralNetwork firstChild, NeuralNetwork secondChild, int parentIndexA, int parentIndexB)
+{
+    for (int k = 0; k < firstChild.weights1.Count; k++)
+    {
+        if (Random.Range(0.0f, 2.0f) < 1f)
+        {
+            firstChild.weights1[k] = population[parentIndexA].weights1[k];
+            secondChild.weights1[k] = population[parentIndexB].weights1[k];
+        }
+        else
+        {
+            secondChild.weights1[k] = population[parentIndexA].weights1[k];
+            firstChild.weights1[k] = population[parentIndexB].weights1[k];
         }
     }
+
+    for (int k = 0; k < firstChild.biases1.Count; k++)
+    {
+        if (Random.Range(0.0f, 2.0f) < 1f)
+        {
+            firstChild.biases1[k] = population[parentIndexA].biases1[k];
+            secondChild.biases1[k] = population[parentIndexB].biases1[k];
+        }
+        else
+        {
+            secondChild.biases1[k] = population[parentIndexA].biases1[k];
+            firstChild.biases1[k] = population[parentIndexB].biases1[k];
+        }
+    }
+}
+
 
     private NeuralNetwork[] PickBestPopulation()
     {
