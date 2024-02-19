@@ -99,7 +99,7 @@ public class NeuralNetwork : MonoBehaviour
         weights1.Add(weightForOutputLayer); 
         biases1.Add(Random.Range(-1f, 1f));  
 
-        RandomiseAllWeights();                 
+        SetRandomWeights();                 
 
     }
 
@@ -159,7 +159,7 @@ public class NeuralNetwork : MonoBehaviour
 
     }
 
-    public void RandomiseAllWeights()
+    public void SetRandomWeights()
     {
         foreach (var matrix in weights1)
         {
