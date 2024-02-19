@@ -54,7 +54,7 @@ public class AutonomousVehicleController : MonoBehaviour
     }
 
     private void OnCollisionEnter (Collision collision) {
-        Death();
+        GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
     }
 
     private void FixedUpdate() {
@@ -72,15 +72,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
         CalculateFitness();
 
-        //a = 0;
-        //t = 0;
 
-
-    }
-
-    private void Death ()
-    {
-        GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
     }
 
     private void CalculateFitness() {
@@ -90,15 +82,11 @@ public class AutonomousVehicleController : MonoBehaviour
 
        calculatedFitnessValue = (distanceValue*scaleFactorDistance)+(speedValue*scaleFactorSpeed)+(((rightRayValue+straightRayValue+leftRayValue)/3)*scaleFactorSensor);
 
-        // if (elapsedTime > 20 && calculatedFitnessValue < 40) {
-        //     Death();
-        // }
-
         if (calculatedFitnessValue >= 1000)
         {
             // At this point we could save the network to a JSON
             // This is also where the network stops when the fitness is too good
-            Death();
+            GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);;
         }
 
     }
