@@ -58,7 +58,7 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
 
-    public void ResetAfterCollision (float fitness, NeuralNetwork network, AutonomousVehicleController vehicle)     // OK
+    public void ResetAfterCollision (float fitness, NeuralNetwork neuralNetwork, AutonomousVehicleController vehicle)     // OK
     {
 
         if (genomeIndex < vehiclePopulation.Length -1)

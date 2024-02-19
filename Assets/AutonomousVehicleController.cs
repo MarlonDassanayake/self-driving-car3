@@ -6,7 +6,7 @@ using UnityEngine;
 public class AutonomousVehicleController : MonoBehaviour
 {
     private Vector3 positionOrigin, rotationOrigin;
-    private NeuralNetwork network;
+    private NeuralNetwork neuralNetwork;
 
     public float vehicleAccelerationValue, vehicleSteeringDirection;
 
@@ -30,12 +30,12 @@ public class AutonomousVehicleController : MonoBehaviour
     {
         positionOrigin = transform.position;
         rotationOrigin = transform.eulerAngles;
-        network = GetComponent<NeuralNetwork>();
+        neuralNetwork = GetComponent<NeuralNetwork>();
     }
 
     public void SetNetworkToInitialState (NeuralNetwork previousNeuralNetwork)
     {
-        network = previousNeuralNetwork;
+        neuralNetwork = previousNeuralNetwork;
         SetValuesToInitialState();
     }
 
@@ -44,25 +44,25 @@ public class AutonomousVehicleController : MonoBehaviour
     public void SetValuesToInitialState() 
     {
 
-        elapsedTime = 0f;
-        distanceValue = 0f;
-        speedValue = 0f;
+        elapsedTime = 0.0f;
+        distanceValue = 0.0f;
+        speedValue = 0.0f;
         updatedPosition = positionOrigin;
-        calculatedFitnessValue = 0f;
+        calculatedFitnessValue = 0.0f;
         transform.position = positionOrigin;
         transform.eulerAngles = rotationOrigin;
     }
 
     private void OnCollisionEnter (Collision collision) 
     {
-        GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
+        GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, neuralNetwork, this);
     }
 
     private void FixedUpdate() 
     {
         GetSensorValues();
         updatedPosition = transform.position;
-        (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
+        (vehicleAccelerationValue, vehicleSteeringDirection) = neuralNetwork.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
         VehicleDriver(vehicleAccelerationValue, vehicleSteeringDirection);
         elapsedTime += Time.deltaTime;
         UpdateVehicleData();
@@ -76,7 +76,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
         if (calculatedFitnessValue >= 1000)
         {
-            GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
+            GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, neuralNetwork, this);
         }
     }
 
