@@ -85,7 +85,7 @@ public class GeneticAlgorithm : MonoBehaviour
         NeuralNetwork[] updatedVehiclePopulation = SelectBestPopulation();
 
         PerformCrossover(updatedVehiclePopulation);
-        Mutate(updatedVehiclePopulation);
+        PerformMutatation(updatedVehiclePopulation);
 
         GenerateRandomPopulation(updatedVehiclePopulation, naturalSelectionIndex);
 
@@ -97,7 +97,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-    private void Mutate (NeuralNetwork[] updatedVehiclePopulation)
+    private void PerformMutatation (NeuralNetwork[] updatedVehiclePopulation)
     {
 
         // Randomly change 'mutate' the weights of some neural networks - 
@@ -111,7 +111,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
                 if (Random.Range(0.0f, 1.0f) < probabilityOfMutation)
                 {
-                    updatedVehiclePopulation[currentIndex].weightsList[currentWeight] = ApplyMutationMatrix(updatedVehiclePopulation[currentIndex].weightsList[currentWeight]);
+                    updatedVehiclePopulation[currentIndex].weightsList[currentWeight] = ApplyMutation(updatedVehiclePopulation[currentIndex].weightsList[currentWeight]);
                 }
 
             }
@@ -121,7 +121,7 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
 
-    List<List<float>> ApplyMutationMatrix(List<List<float>> matrixA)
+    List<List<float>> ApplyMutation(List<List<float>> matrixA)
     {
         // Select a random number of values to be mutated
         int selectionRandom = Random.Range(1, (matrixA.Count * matrixA[0].Count) / 7);
@@ -131,10 +131,10 @@ public class GeneticAlgorithm : MonoBehaviour
         // Perform mutation on random rows and columns
         for (int i = 0; i < selectionRandom; i++)
         {
-            int randomRow = Random.Range(0, tempMatrix.Count);
-            int randomColumn = Random.Range(0, tempMatrix[0].Count);
+            int rowNumber = Random.Range(0, tempMatrix.Count);
+            int elementNumber = Random.Range(0, tempMatrix[0].Count);
 
-            tempMatrix[randomRow][randomColumn] = Mathf.Clamp(tempMatrix[randomRow][randomColumn] + Random.Range(-1f, 1f), -1f, 1f);
+            tempMatrix[rowNumber][elementNumber] = Mathf.Clamp(tempMatrix[rowNumber][elementNumber] + Random.Range(-1f, 1f), -1f, 1f);
         }
 
         return tempMatrix;
