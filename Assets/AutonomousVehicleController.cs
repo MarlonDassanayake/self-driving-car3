@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(NeuralNetwork))]
 public class AutonomousVehicleController : MonoBehaviour
 {
-    private Vector3 startPosition, startRotation;
+    private Vector3 positionOrigin, rotationOrigin;
     private NeuralNetwork network;
 
     public float vehicleAccelerationValue, vehicleSteeringDirection;
@@ -20,7 +20,7 @@ public class AutonomousVehicleController : MonoBehaviour
     public float scaleFactorDistance = 1.4f;
     public float calculatedFitnessValue;
 
-    private Vector3 lastPosition;
+    private Vector3 updatedPosition;
     public float distanceValue;
     public float speedValue;
 
@@ -28,8 +28,8 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void Awake() 
     {
-        startPosition = transform.position;
-        startRotation = transform.eulerAngles;
+        positionOrigin = transform.position;
+        rotationOrigin = transform.eulerAngles;
         network = GetComponent<NeuralNetwork>();
     }
 
@@ -47,10 +47,10 @@ public class AutonomousVehicleController : MonoBehaviour
         elapsedTime = 0f;
         distanceValue = 0f;
         speedValue = 0f;
-        lastPosition = startPosition;
+        updatedPosition = positionOrigin;
         calculatedFitnessValue = 0f;
-        transform.position = startPosition;
-        transform.eulerAngles = startRotation;
+        transform.position = positionOrigin;
+        transform.eulerAngles = rotationOrigin;
     }
 
     private void OnCollisionEnter (Collision collision) 
@@ -61,7 +61,7 @@ public class AutonomousVehicleController : MonoBehaviour
     private void FixedUpdate() 
     {
         GetSensorValues();
-        lastPosition = transform.position;
+        updatedPosition = transform.position;
         (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
         VehicleDriver(vehicleAccelerationValue, vehicleSteeringDirection);
         elapsedTime += Time.deltaTime;
@@ -82,7 +82,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void UpdateDistanceValue() 
     {
-        distanceValue += Vector3.Distance(transform.position, lastPosition);
+        distanceValue += Vector3.Distance(transform.position, updatedPosition);
     }
 
     private void UpdateSpeedValue() 
