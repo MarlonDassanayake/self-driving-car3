@@ -60,21 +60,12 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-
         GetSensorValues();
         lastPosition = transform.position;
-
-
         (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
-
-
         VehicleDriver(vehicleAccelerationValue, vehicleSteeringDirection);
-
         elapsedTime += Time.deltaTime;
-
         UpdateVehicleData();
-
-
     }
 
     private void UpdateVehicleData() 
