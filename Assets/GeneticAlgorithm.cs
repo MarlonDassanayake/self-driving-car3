@@ -53,12 +53,12 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
     // generated a random population
-    private void GenerateRandomPopulation(NeuralNetwork[] newPopulation, int startingIndex)   
+    private void GenerateRandomPopulation(NeuralNetwork[] updatedVehiclePopulation, int startingIndex)   
     {
         while (startingIndex < populationStartSize)
         {
-            newPopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
-            newPopulation[startingIndex].Initialise(controller.layerCount, controller.neuronCount);
+            updatedVehiclePopulation[startingIndex] = (new GameObject().AddComponent<NeuralNetwork>());
+            updatedVehiclePopulation[startingIndex].Initialise(controller.layerCount, controller.neuronCount);
             startingIndex++;
         }
     }
@@ -89,14 +89,14 @@ public class GeneticAlgorithm : MonoBehaviour
         naturalSelectionIndex = 0;
         MergeSortPopulation(vehiclePopulation, 0, vehiclePopulation.Length - 1);
 
-        NeuralNetwork[] newPopulation = SelectBestPopulation();
+        NeuralNetwork[] updatedVehiclePopulation = SelectBestPopulation();
 
-        PerformCrossover(newPopulation);
-        Mutate(newPopulation);
+        PerformCrossover(updatedVehiclePopulation);
+        Mutate(updatedVehiclePopulation);
 
-        GenerateRandomPopulation(newPopulation, naturalSelectionIndex);
+        GenerateRandomPopulation(updatedVehiclePopulation, naturalSelectionIndex);
 
-        vehiclePopulation = newPopulation;
+        vehiclePopulation = updatedVehiclePopulation;
 
         genomeIndex = 0;
 
@@ -104,7 +104,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-    private void Mutate (NeuralNetwork[] newPopulation)
+    private void Mutate (NeuralNetwork[] updatedVehiclePopulation)
     {
 
         // Randomly change 'mutate' the weights of some neural networks - 
@@ -113,12 +113,12 @@ public class GeneticAlgorithm : MonoBehaviour
         for (int currentIndex = 0; currentIndex < naturalSelectionIndex; currentIndex++) 
         {
 
-            for (int currentWeight = 0; currentWeight < newPopulation[currentIndex].weights1.Count; currentWeight++)
+            for (int currentWeight = 0; currentWeight < updatedVehiclePopulation[currentIndex].weights1.Count; currentWeight++)
             {
 
                 if (Random.Range(0.0f, 1.0f) < probabilityOfMutation)
                 {
-                    newPopulation[currentIndex].weights1[currentWeight] = ApplyMutationMatrix(newPopulation[currentIndex].weights1[currentWeight]);
+                    updatedVehiclePopulation[currentIndex].weights1[currentWeight] = ApplyMutationMatrix(updatedVehiclePopulation[currentIndex].weights1[currentWeight]);
                 }
 
             }
@@ -148,7 +148,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-    private void PerformCrossover(NeuralNetwork[] newPopulation)
+    private void PerformCrossover(NeuralNetwork[] updatedVehiclePopulation)
     {
         for (int i = 0; i < crossoverCount; i += 2)
         {
@@ -170,8 +170,8 @@ public class GeneticAlgorithm : MonoBehaviour
 
             SwapWeightsAndBiases(firstChild, secondChild, parentIndexA, parentIndexB);
 
-            newPopulation[naturalSelectionIndex++] = firstChild;
-            newPopulation[naturalSelectionIndex++] = secondChild;
+            updatedVehiclePopulation[naturalSelectionIndex++] = firstChild;
+            updatedVehiclePopulation[naturalSelectionIndex++] = secondChild;
         }
     }
 
