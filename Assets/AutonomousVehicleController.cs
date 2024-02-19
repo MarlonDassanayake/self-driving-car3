@@ -144,9 +144,9 @@ public class AutonomousVehicleController : MonoBehaviour
 
     public void VehicleDriver(float vehicleAcceleration, float vehicleSteering) 
     {
-        Vector3 movement = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, vehicleAcceleration * 11.4f), 0.02f);
-        movement = transform.TransformDirection(movement);
-        transform.position += movement;
+        Vector3 displace = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, vehicleAcceleration * 11.4f), 0.02f);
+        displace = transform.TransformDirection(displace);
+        transform.position += displace;
 
         if (transform.position.y > 52.5f) 
         {

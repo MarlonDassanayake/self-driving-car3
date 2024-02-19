@@ -266,9 +266,9 @@ public class NeuralNetwork : MonoBehaviour
         }
     }
 
-    private float ApplySigmoid (float s)
+    private float ApplySigmoid (float element)
     {
-        return (1 / (1 + Mathf.Exp(-s)));
+        return (1 / (1 + Mathf.Exp(-element)));
     }
 
 }
