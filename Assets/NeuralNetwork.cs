@@ -59,18 +59,6 @@ public class NeuralNetwork : MonoBehaviour
         }
     }
 
-    // Reset a list of matrices so every element is a 0
-    // This subroutine may be obsolete (it's not used I think)
-
-    public static void ResetListOfMatrices(List<List<List<float>>> listOfMatrices)
-    {
-
-        for (int z = 0; z < listOfMatrices.Count; z++)
-        {
-            ResetMatrix(listOfMatrices[z]);
-        }
-    }
-
 
     public void Initialise (int hiddenLayerCount, int hiddenNeuronCount)
     {
