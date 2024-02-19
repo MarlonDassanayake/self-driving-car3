@@ -38,13 +38,13 @@ public class GeneticAlgorithm : MonoBehaviour
     private void AutoControllerReset()
     {
         foreach(AutonomousVehicleController vehicle in controllers)
-            vehicle.ResetWithNetwork(vehiclePopulation[genomeIndex]);
+            vehicle.SetNetworkToInitialState(vehiclePopulation[genomeIndex]);
     }
 
     // Polymorphism - same method name with different signature.
     private void AutoControllerReset(AutonomousVehicleController vehicle)
     {
-        vehicle.ResetWithNetwork(vehiclePopulation[genomeIndex]); //old but ok
+        vehicle.SetNetworkToInitialState(vehiclePopulation[genomeIndex]); //old but ok
     }
 
     // generated a random population

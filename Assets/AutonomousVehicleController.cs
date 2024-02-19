@@ -33,15 +33,15 @@ public class AutonomousVehicleController : MonoBehaviour
         network = GetComponent<NeuralNetwork>();
     }
 
-    public void ResetWithNetwork (NeuralNetwork net)
+    public void SetNetworkToInitialState (NeuralNetwork previousNeuralNetwork)
     {
-        network = net;
-        SetValuesToInitial();
+        network = previousNeuralNetwork;
+        SetValuesToInitialState();
     }
 
     
 
-    public void SetValuesToInitial() 
+    public void SetValuesToInitialState() 
     {
 
         elapsedTime = 0f;
