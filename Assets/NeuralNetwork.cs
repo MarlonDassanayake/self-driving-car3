@@ -161,19 +161,18 @@ public class NeuralNetwork : MonoBehaviour
 
     public void RandomiseAllWeights()
     {
-
-        for (int i = 0; i < weights1.Count; i++)                 
+        foreach (var matrix in weights1)
         {
-            for (int x = 0; x < weights1[i].Count; x++)
+            foreach (var row in matrix)
             {
-                for (int y = 0; y < weights1[i][0].Count; y++)
+                for (int i = 0; i < row.Count; i++)
                 {
-                    weights1[i][x][y] = Random.Range(-1f, 1f);
+                    row[i] = Random.Range(-1f, 1f);
                 }
             }
         }
-
     }
+
 
     // Function runs the neural network. It returns to values - acceleration and steering.
     public (float, float) ComputeNeuralNetworkOutput (float a, float b, float c)
