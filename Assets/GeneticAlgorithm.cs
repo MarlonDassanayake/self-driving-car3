@@ -106,12 +106,12 @@ public class GeneticAlgorithm : MonoBehaviour
         for (int currentIndex = 0; currentIndex < naturalSelectionIndex; currentIndex++) 
         {
 
-            for (int currentWeight = 0; currentWeight < updatedVehiclePopulation[currentIndex].weights1.Count; currentWeight++)
+            for (int currentWeight = 0; currentWeight < updatedVehiclePopulation[currentIndex].weightsList.Count; currentWeight++)
             {
 
                 if (Random.Range(0.0f, 1.0f) < probabilityOfMutation)
                 {
-                    updatedVehiclePopulation[currentIndex].weights1[currentWeight] = ApplyMutationMatrix(updatedVehiclePopulation[currentIndex].weights1[currentWeight]);
+                    updatedVehiclePopulation[currentIndex].weightsList[currentWeight] = ApplyMutationMatrix(updatedVehiclePopulation[currentIndex].weightsList[currentWeight]);
                 }
 
             }
@@ -178,31 +178,31 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void SwapWeightsAndBiases(NeuralNetwork firstChild, NeuralNetwork secondChild, int parentIndexA, int parentIndexB)
     {
-        for (int k = 0; k < firstChild.weights1.Count; k++)
+        for (int k = 0; k < firstChild.weightsList.Count; k++)
         {
             if (Random.Range(0.0f, 2.0f) < 1f)
             {
-                firstChild.weights1[k] = vehiclePopulation[parentIndexA].weights1[k];
-                secondChild.weights1[k] = vehiclePopulation[parentIndexB].weights1[k];
+                firstChild.weightsList[k] = vehiclePopulation[parentIndexA].weightsList[k];
+                secondChild.weightsList[k] = vehiclePopulation[parentIndexB].weightsList[k];
             }
             else
             {
-                secondChild.weights1[k] = vehiclePopulation[parentIndexA].weights1[k];
-                firstChild.weights1[k] = vehiclePopulation[parentIndexB].weights1[k];
+                secondChild.weightsList[k] = vehiclePopulation[parentIndexA].weightsList[k];
+                firstChild.weightsList[k] = vehiclePopulation[parentIndexB].weightsList[k];
             }
         }
 
-        for (int k = 0; k < firstChild.biases1.Count; k++)
+        for (int k = 0; k < firstChild.biasList.Count; k++)
         {
             if (Random.Range(0.0f, 2.0f) < 1f)
             {
-                firstChild.biases1[k] = vehiclePopulation[parentIndexA].biases1[k];
-                secondChild.biases1[k] = vehiclePopulation[parentIndexB].biases1[k];
+                firstChild.biasList[k] = vehiclePopulation[parentIndexA].biasList[k];
+                secondChild.biasList[k] = vehiclePopulation[parentIndexB].biasList[k];
             }
             else
             {
-                secondChild.biases1[k] = vehiclePopulation[parentIndexA].biases1[k];
-                firstChild.biases1[k] = vehiclePopulation[parentIndexB].biases1[k];
+                secondChild.biasList[k] = vehiclePopulation[parentIndexA].biasList[k];
+                firstChild.biasList[k] = vehiclePopulation[parentIndexB].biasList[k];
             }
         }
     }

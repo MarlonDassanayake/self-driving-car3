@@ -19,10 +19,10 @@ public class NeuralNetwork : MonoBehaviour
     public List<List<float>> outputLayerMatrix = CreateMatrix(1,2);
 
     // Declare weights as a list of matrices
-    public List<List<List<float>>> weights1 = new List<List<List<float>>>();
+    public List<List<List<float>>> weightsList = new List<List<List<float>>>();
 
     // Decare biases as a list of floats
-    public List<float> biases1 = new List<float>();
+    public List<float> biasList = new List<float>();
 
     // Declare fitness variable
     public float fitness;
@@ -69,8 +69,8 @@ public class NeuralNetwork : MonoBehaviour
 
         ResetMatrix(inputLayerMatrix);
         ResetMatrix(outputLayerMatrix);
-        biases1.Clear();
-        weights1.Clear();
+        biasList.Clear();
+        weightsList.Clear();
         hiddenLayersList.Clear();
 
         // Create the hidden layers 
@@ -81,23 +81,23 @@ public class NeuralNetwork : MonoBehaviour
             // Create neurons for each indivdual hidden layer
             List<List<float>> individualHiddenLayer = CreateMatrix(1,neuronCount);
             hiddenLayersList.Add(individualHiddenLayer);
-            biases1.Add(Random.Range(-1f, 1f));  
+            biasList.Add(Random.Range(-1f, 1f));  
 
             // Weight matrix is configured so that the first hidden layer
             // holds the correct amount of weights (to be suitable with the input layer)
             if (i == 0)
             {
                 List<List<float>> inputLayerToHidden1 = CreateMatrix(3, neuronCount);
-                weights1.Add(inputLayerToHidden1);    
+                weightsList.Add(inputLayerToHidden1);    
             }
 
             List<List<float>> HiddenLayersLink = CreateMatrix(neuronCount, neuronCount);
-            weights1.Add(HiddenLayersLink); 
+            weightsList.Add(HiddenLayersLink); 
         }
 
         List<List<float>> weightForOutputLayer = CreateMatrix(neuronCount, 2);
-        weights1.Add(weightForOutputLayer); 
-        biases1.Add(Random.Range(-1f, 1f));  
+        weightsList.Add(weightForOutputLayer); 
+        biasList.Add(Random.Range(-1f, 1f));  
 
         SetRandomWeights();                 
 
@@ -112,15 +112,15 @@ public class NeuralNetwork : MonoBehaviour
         List<List<List<float>>> newWeights1 = new List<List<List<float>>>();
 
         // Loop through the currents weights in this Neural network class and assign these to the new list of weights
-        for (int i = 0; i < this.weights1.Count; i++)        
+        for (int i = 0; i < this.weightsList.Count; i++)        
         {
-            List<List<float>> currentWeight1 = CreateMatrix(weights1[i].Count, weights1[i][0].Count);
+            List<List<float>> currentWeight1 = CreateMatrix(weightsList[i].Count, weightsList[i][0].Count);
 
             for (int j = 0; j < currentWeight1.Count; j++)
             {
                 for (int k = 0; k < currentWeight1[0].Count; k++)
                 {
-                    currentWeight1[j][k] = weights1[i][j][k];
+                    currentWeight1[j][k] = weightsList[i][j][k];
                 }
             }
 
@@ -129,9 +129,9 @@ public class NeuralNetwork : MonoBehaviour
 
         // Initialise biases
         List<float> newBiases1 = new List<float>();
-        newBiases1.AddRange(biases1);
-        newNetwork.weights1 = newWeights1;
-        newNetwork.biases1 = newBiases1;
+        newBiases1.AddRange(biasList);
+        newNetwork.weightsList = newWeights1;
+        newNetwork.biasList = newBiases1;
 
         newNetwork.ResetHiddenLayers(layerCount, neuronCount); 
 
@@ -158,7 +158,7 @@ public class NeuralNetwork : MonoBehaviour
 
     public void SetRandomWeights()
     {
-        foreach (var matrix in weights1)
+        foreach (var matrix in weightsList)
         {
             foreach (var row in matrix)
             {
@@ -189,21 +189,21 @@ public class NeuralNetwork : MonoBehaviour
         HyperbolicTangent(inputLayerMatrix);
 
         // Values for the first hidden layer are created
-        hiddenLayersList[0] = MultiplyMatrices(inputLayerMatrix, weights1[0]);
-        AddBias(hiddenLayersList[0], biases1[0]);
+        hiddenLayersList[0] = MultiplyMatrices(inputLayerMatrix, weightsList[0]);
+        AddBias(hiddenLayersList[0], biasList[0]);
         HyperbolicTangent(hiddenLayersList[0]);
 
         // Assign values for each hidden layer
         for (int i = 1; i < hiddenLayersList.Count; i++)
         {
-            hiddenLayersList[i] = MultiplyMatrices(hiddenLayersList[i-1], weights1[i]);
-            AddBias(hiddenLayersList[i], biases1[i]);
+            hiddenLayersList[i] = MultiplyMatrices(hiddenLayersList[i-1], weightsList[i]);
+            AddBias(hiddenLayersList[i], biasList[i]);
             HyperbolicTangent(hiddenLayersList[i]);
         }
 
         // Assign the output layer
-        outputLayerMatrix = MultiplyMatrices(hiddenLayersList[hiddenLayersList.Count-1], weights1[weights1.Count-1]);
-        AddBias(outputLayerMatrix, biases1[biases1.Count-1]);
+        outputLayerMatrix = MultiplyMatrices(hiddenLayersList[hiddenLayersList.Count-1], weightsList[weightsList.Count-1]);
+        AddBias(outputLayerMatrix, biasList[biasList.Count-1]);
         HyperbolicTangent(outputLayerMatrix);
 
         // Return the output values
