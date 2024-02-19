@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Acc1Output : MonoBehaviour
+public class UIOutput : MonoBehaviour
 {
     public Text outputAcceleration;
     public Text outputSteering;

@@ -114,17 +114,17 @@ public class NeuralNetwork : MonoBehaviour
         // Loop through the currents weights in this Neural network class and assign these to the new list of weights
         for (int i = 0; i < this.weightsList.Count; i++)        
         {
-            List<List<float>> currentWeight1 = CreateMatrix(weightsList[i].Count, weightsList[i][0].Count);
+            List<List<float>> neuralNetWeight = CreateMatrix(weightsList[i].Count, weightsList[i][0].Count);
 
-            for (int j = 0; j < currentWeight1.Count; j++)
+            for (int j = 0; j < neuralNetWeight.Count; j++)
             {
-                for (int k = 0; k < currentWeight1[0].Count; k++)
+                for (int k = 0; k < neuralNetWeight[0].Count; k++)
                 {
-                    currentWeight1[j][k] = weightsList[i][j][k];
+                    neuralNetWeight[j][k] = weightsList[i][j][k];
                 }
             }
 
-            duplicateWeightList.Add(currentWeight1);
+            duplicateWeightList.Add(neuralNetWeight);
         }
 
         // Initialise biases
@@ -150,8 +150,8 @@ public class NeuralNetwork : MonoBehaviour
         // Copy the hidden layers
         for (int i = 0; i <= layerCount; i ++)
         {
-            List<List<float>> newHiddenLayer1 = CreateMatrix(1, neuronCount);
-            hiddenLayersList.Add(newHiddenLayer1);
+            List<List<float>> neuralNetHiddenLayer = CreateMatrix(1, neuronCount);
+            hiddenLayersList.Add(neuralNetHiddenLayer);
         }
 
     }

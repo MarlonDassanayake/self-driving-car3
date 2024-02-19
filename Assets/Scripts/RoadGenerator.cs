@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Road : MonoBehaviour
+public class RoadGenerator : MonoBehaviour
 {
     public Transform startPos;
     public GameObject[] PrefabsRoad; // Hold various type of roads
