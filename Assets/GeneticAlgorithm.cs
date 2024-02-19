@@ -85,7 +85,7 @@ public class GeneticAlgorithm : MonoBehaviour
         NeuralNetwork[] updatedVehiclePopulation = SelectNextGeneration();
 
         PerformCrossover(updatedVehiclePopulation);
-        PerformMutatation(updatedVehiclePopulation);
+        PerformMutation(updatedVehiclePopulation);
 
         GenerateRandomPopulation(updatedVehiclePopulation, naturalSelectionIndex);
 
@@ -97,7 +97,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-    private void PerformMutatation (NeuralNetwork[] updatedVehiclePopulation)
+    private void PerformMutation (NeuralNetwork[] updatedVehiclePopulation)
     {
 
         // Randomly change 'mutate' the weights of some neural networks - 
