@@ -36,12 +36,12 @@ public class AutonomousVehicleController : MonoBehaviour
     public void ResetWithNetwork (NeuralNetwork net)
     {
         network = net;
-        Reset();
+        SetValuesToInitial();
     }
 
     
 
-    public void Reset() 
+    public void SetValuesToInitial() 
     {
 
         elapsedTime = 0f;
