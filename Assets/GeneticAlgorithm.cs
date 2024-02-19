@@ -92,7 +92,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         NeuralNetwork[] newPopulation = PickBestPopulation();
 
-        Crossover(newPopulation);
+        PerformCrossover(newPopulation);
         Mutate(newPopulation);
 
         FillPopulationWithRandomValues(newPopulation, naturallySelected);
@@ -149,7 +149,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-private void Crossover(NeuralNetwork[] newPopulation)
+private void PerformCrossover(NeuralNetwork[] newPopulation)
 {
     for (int i = 0; i < crossoverCount; i += 2)
     {
