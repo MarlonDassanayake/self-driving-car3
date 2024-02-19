@@ -10,13 +10,13 @@ public class NeuralNetwork : MonoBehaviour
 {
 
     // Initialise input layer as 0 matrix
-    public List<List<float>> inputLayer1 = CreateMatrix(1,3);
+    public List<List<float>> inputLayerMatrix = CreateMatrix(1,3);
 
     // Declare hidden layers as a list of matrices
-    public List<List<List<float>>> hiddenLayers1 = new List<List<List<float>>>();
+    public List<List<List<float>>> hiddenLayersList = new List<List<List<float>>>();
 
     // Initialise output layer as 0 matrix
-    public List<List<float>> outputLayer1 = CreateMatrix(1,2);
+    public List<List<float>> outputLayerMatrix = CreateMatrix(1,2);
 
     // Declare weights as a list of matrices
     public List<List<List<float>>> weights1 = new List<List<List<float>>>();
@@ -67,11 +67,11 @@ public class NeuralNetwork : MonoBehaviour
         // so that each element in input and output layer matrices are 0
         // and the biases, weights and hiddenLayers are empty
 
-        ResetMatrix(inputLayer1);
-        ResetMatrix(outputLayer1);
+        ResetMatrix(inputLayerMatrix);
+        ResetMatrix(outputLayerMatrix);
         biases1.Clear();
         weights1.Clear();
-        hiddenLayers1.Clear();
+        hiddenLayersList.Clear();
 
         // Create the hidden layers 
         // (populate, the required number of hidden layers with values)
@@ -80,7 +80,7 @@ public class NeuralNetwork : MonoBehaviour
 
             // Create neurons for each indivdual hidden layer
             List<List<float>> individualHiddenLayer = CreateMatrix(1,neuronCount);
-            hiddenLayers1.Add(individualHiddenLayer);
+            hiddenLayersList.Add(individualHiddenLayer);
             biases1.Add(Random.Range(-1f, 1f));  
 
             // Weight matrix is configured so that the first hidden layer
@@ -143,15 +143,15 @@ public class NeuralNetwork : MonoBehaviour
     {
 
         // Reset input layer, output layer and hidden layers.
-        ResetMatrix(inputLayer1);
-        ResetMatrix(outputLayer1);
-        hiddenLayers1.Clear();
+        ResetMatrix(inputLayerMatrix);
+        ResetMatrix(outputLayerMatrix);
+        hiddenLayersList.Clear();
 
         // Copy the hidden layers
         for (int i = 0; i <= layerCount; i ++)
         {
             List<List<float>> newHiddenLayer1 = CreateMatrix(1, neuronCount);
-            hiddenLayers1.Add(newHiddenLayer1);
+            hiddenLayersList.Add(newHiddenLayer1);
         }
 
     }
@@ -176,9 +176,9 @@ public class NeuralNetwork : MonoBehaviour
     {
 
         // Values of input layer set to input sensor values
-        inputLayer1[0][0] = a;     
-        inputLayer1[0][1] = b;      
-        inputLayer1[0][2] = c;   
+        inputLayerMatrix[0][0] = a;     
+        inputLayerMatrix[0][1] = b;      
+        inputLayerMatrix[0][2] = c;   
 
 
         // Tanh used as we would like our output values for steering to be between -1 and 1.
@@ -186,29 +186,29 @@ public class NeuralNetwork : MonoBehaviour
         // (and so minimise errors).
         // It is also used to ensure that no data is lost throughout propogation.
 
-        HyperbolicTangent(inputLayer1);
+        HyperbolicTangent(inputLayerMatrix);
 
         // Values for the first hidden layer are created
-        hiddenLayers1[0] = MultiplyMatrices(inputLayer1, weights1[0]);
-        AddBias(hiddenLayers1[0], biases1[0]);
-        HyperbolicTangent(hiddenLayers1[0]);
+        hiddenLayersList[0] = MultiplyMatrices(inputLayerMatrix, weights1[0]);
+        AddBias(hiddenLayersList[0], biases1[0]);
+        HyperbolicTangent(hiddenLayersList[0]);
 
         // Assign values for each hidden layer
-        for (int i = 1; i < hiddenLayers1.Count; i++)
+        for (int i = 1; i < hiddenLayersList.Count; i++)
         {
-            hiddenLayers1[i] = MultiplyMatrices(hiddenLayers1[i-1], weights1[i]);
-            AddBias(hiddenLayers1[i], biases1[i]);
-            HyperbolicTangent(hiddenLayers1[i]);
+            hiddenLayersList[i] = MultiplyMatrices(hiddenLayersList[i-1], weights1[i]);
+            AddBias(hiddenLayersList[i], biases1[i]);
+            HyperbolicTangent(hiddenLayersList[i]);
         }
 
         // Assign the output layer
-        outputLayer1 = MultiplyMatrices(hiddenLayers1[hiddenLayers1.Count-1], weights1[weights1.Count-1]);
-        AddBias(outputLayer1, biases1[biases1.Count-1]);
-        HyperbolicTangent(outputLayer1);
+        outputLayerMatrix = MultiplyMatrices(hiddenLayersList[hiddenLayersList.Count-1], weights1[weights1.Count-1]);
+        AddBias(outputLayerMatrix, biases1[biases1.Count-1]);
+        HyperbolicTangent(outputLayerMatrix);
 
         // Return the output values
         // Outputs are acceleration and steering
-        return (ApplySigmoid(outputLayer1[0][0]), (float)(Mathf.Exp(outputLayer1[0][1]) - Mathf.Exp(-outputLayer1[0][1]))/(Mathf.Exp(outputLayer1[0][1]) + Mathf.Exp(-outputLayer1[0][1])));
+        return (ApplySigmoid(outputLayerMatrix[0][0]), (float)(Mathf.Exp(outputLayerMatrix[0][1]) - Mathf.Exp(-outputLayerMatrix[0][1]))/(Mathf.Exp(outputLayerMatrix[0][1]) + Mathf.Exp(-outputLayerMatrix[0][1])));
 
     }
 
