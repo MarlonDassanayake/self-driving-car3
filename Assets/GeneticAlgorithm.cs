@@ -32,7 +32,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void CreatePopulation()
     {
-        // Fetch all of the car controllers.
+        // Fetch all of the vehicle controllers.
         controllers = FindObjectsOfType<AutonomousVehicleController>();
         population = new NeuralNetwork[populationStartSize];       // old but ok
         GenerateRandomPopulation(population, 0);  // old but ok
@@ -42,14 +42,14 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void AutoControllerReset()
     {
-        foreach(AutonomousVehicleController car in controllers)
-            car.ResetWithNetwork(population[genomeIndex]);
+        foreach(AutonomousVehicleController vehicle in controllers)
+            vehicle.ResetWithNetwork(population[genomeIndex]);
     }
 
     // Polymorphism - same method name with different signature.
-    private void AutoControllerReset(AutonomousVehicleController car)
+    private void AutoControllerReset(AutonomousVehicleController vehicle)
     {
-        car.ResetWithNetwork(population[genomeIndex]); //old but ok
+        vehicle.ResetWithNetwork(population[genomeIndex]); //old but ok
     }
 
     // generated a random population
@@ -63,7 +63,7 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
 
-    public void ResetAfterCollision (float fitness, NeuralNetwork network, AutonomousVehicleController car)     // OK
+    public void ResetAfterCollision (float fitness, NeuralNetwork network, AutonomousVehicleController vehicle)     // OK
     {
 
         if (genomeIndex < population.Length -1)
@@ -71,7 +71,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
             population[genomeIndex].fitness = fitness;
             genomeIndex++;
-            AutoControllerReset(car);
+            AutoControllerReset(vehicle);
 
         }
         else
