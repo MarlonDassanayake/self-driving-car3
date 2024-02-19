@@ -27,11 +27,6 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void Start()
     {
-        CreatePopulation();
-    }
-
-    private void CreatePopulation()
-    {
         // Fetch all of the vehicle controllers.
         controllers = FindObjectsOfType<AutonomousVehicleController>();
         vehiclePopulation = new NeuralNetwork[populationStartSize];       // old but ok
