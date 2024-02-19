@@ -27,13 +27,13 @@ public class Road : MonoBehaviour
         switch (exitDirection)
         {
             case "North":
-                nextPlanePosition = Random.RandomRange(0, 3);
+                nextPlanePosition = Random.Range(0, 3);
                 break;
             case "West":
-                nextPlanePosition = Random.RandomRange(3, 5);
+                nextPlanePosition = Random.Range(3, 5);
                 break;
             case "East":
-                nextPlanePosition = Random.RandomRange(4, 6);
+                nextPlanePosition = Random.Range(4, 6);
                 break;
         }
 
