@@ -58,12 +58,12 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
 
-    public void ResetAfterCollision (float fitness, NeuralNetwork neuralNetwork, AutonomousVehicleController vehicle)     // OK
+    public void ResetAfterCollision (float fitnessValue, NeuralNetwork neuralNetwork, AutonomousVehicleController vehicle)     // OK
     {
 
         if (genomeIndex < vehiclePopulation.Length -1)
         {
-            vehiclePopulation[genomeIndex].fitness = fitness;
+            vehiclePopulation[genomeIndex].fitnessValue = fitnessValue;
             genomeIndex++;
             AutoControllerReset(vehicle);
         }
@@ -172,7 +172,7 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         NeuralNetwork child = (new GameObject().AddComponent<NeuralNetwork>());
         child.CreateNeuralNetwork(controller.layerCount, controller.neuronCount);
-        child.fitness = 0;
+        child.fitnessValue = 0;
         return child;
     }
 
@@ -223,10 +223,10 @@ public class GeneticAlgorithm : MonoBehaviour
         for (int index = 0; index < eliteSelectionCount; index++)
         {
             selectedPopulation[naturalSelectionIndex] = vehiclePopulation[index].DuplicateNetwork(controller.layerCount, controller.neuronCount);
-            selectedPopulation[naturalSelectionIndex].fitness = 0;
+            selectedPopulation[naturalSelectionIndex].fitnessValue = 0;
             naturalSelectionIndex++;
 
-            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[index].fitness * 10);
+            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[index].fitnessValue * 10);
 
             for (int count = 0; count < fitnessScaled; count++)
             {
@@ -242,7 +242,7 @@ public class GeneticAlgorithm : MonoBehaviour
             int lastIndex = vehiclePopulation.Length - 1;
             lastIndex -= index;
 
-            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[lastIndex].fitness * 10);
+            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[lastIndex].fitnessValue * 10);
 
             for (int count = 0; count < fitnessScaled; count++)
             {
@@ -288,7 +288,7 @@ public class GeneticAlgorithm : MonoBehaviour
         int k = left;
         while (i < n1 && j < n2)
         {
-            if (leftArr[i].fitness >= rightArr[j].fitness)
+            if (leftArr[i].fitnessValue >= rightArr[j].fitnessValue)
             {
                 arr[k] = leftArr[i];
                 i++;

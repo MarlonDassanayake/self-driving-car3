@@ -25,7 +25,7 @@ public class NeuralNetwork : MonoBehaviour
     public List<float> biasList = new List<float>();
 
     // Declare fitness variable
-    public float fitness;
+    public float fitnessValue;
 
     // Create a nested list structure containing 0 in every element to represent a 0 matrix
 
@@ -109,7 +109,7 @@ public class NeuralNetwork : MonoBehaviour
         NeuralNetwork newNetwork = (new GameObject().AddComponent<NeuralNetwork>());
         
         // Create a new list of matrices to represent the new weights
-        List<List<List<float>>> newWeights1 = new List<List<List<float>>>();
+        List<List<List<float>>> duplicateWeightList = new List<List<List<float>>>();
 
         // Loop through the currents weights in this Neural network class and assign these to the new list of weights
         for (int i = 0; i < this.weightsList.Count; i++)        
@@ -124,14 +124,14 @@ public class NeuralNetwork : MonoBehaviour
                 }
             }
 
-            newWeights1.Add(currentWeight1);
+            duplicateWeightList.Add(currentWeight1);
         }
 
         // Initialise biases
-        List<float> newBiases1 = new List<float>();
-        newBiases1.AddRange(biasList);
-        newNetwork.weightsList = newWeights1;
-        newNetwork.biasList = newBiases1;
+        List<float> duplicateBiasList = new List<float>();
+        duplicateBiasList.AddRange(biasList);
+        newNetwork.weightsList = duplicateWeightList;
+        newNetwork.biasList = duplicateBiasList;
 
         newNetwork.ResetHiddenLayers(layerCount, neuronCount); 
 
