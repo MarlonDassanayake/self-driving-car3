@@ -99,7 +99,7 @@ public class NeuralNetwork : MonoBehaviour
         weights1.Add(weightForOutputLayer); 
         biases1.Add(Random.Range(-1f, 1f));  
 
-        RandomiseAllWeights();                 // adapted, done (+ name changed done)
+        RandomiseAllWeights();                 
 
     }
 
@@ -212,7 +212,7 @@ public class NeuralNetwork : MonoBehaviour
 
         // Return the output values
         // Outputs are acceleration and steering
-        return (Sigmoid(outputLayer1[0][0]), (float)(Mathf.Exp(outputLayer1[0][1]) - Mathf.Exp(-outputLayer1[0][1]))/(Mathf.Exp(outputLayer1[0][1]) + Mathf.Exp(-outputLayer1[0][1])));
+        return (ApplySigmoid(outputLayer1[0][0]), (float)(Mathf.Exp(outputLayer1[0][1]) - Mathf.Exp(-outputLayer1[0][1]))/(Mathf.Exp(outputLayer1[0][1]) + Mathf.Exp(-outputLayer1[0][1])));
 
     }
 
@@ -270,7 +270,7 @@ public class NeuralNetwork : MonoBehaviour
         }
     }
 
-    private float Sigmoid (float s)
+    private float ApplySigmoid (float s)
     {
         return (1 / (1 + Mathf.Exp(-s)));
     }
