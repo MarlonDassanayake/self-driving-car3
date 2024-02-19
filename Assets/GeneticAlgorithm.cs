@@ -20,7 +20,7 @@ public class GeneticAlgorithm : MonoBehaviour
     // Create a list of integers to represent the gene pool (the networks that are selected)
     private List<int> genePool = new List<int>(); // old BUT OK
     
-    private int naturallySelected; // A counter
+    private int naturalSelectionIndex; // A counter
 
     // Create an array of neural networks to represent the popultation
     private NeuralNetwork[] population;  // old but OK
@@ -87,15 +87,15 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         genePool.Clear(); // clears the networks from the previous generation
         generationIndex++;
-        naturallySelected = 0;
+        naturalSelectionIndex = 0;
         MergeSortPopulation(population, 0, population.Length - 1);
 
-        NeuralNetwork[] newPopulation = PickBestPopulation();
+        NeuralNetwork[] newPopulation = SelectBestPopulation();
 
         PerformCrossover(newPopulation);
         Mutate(newPopulation);
 
-        FillPopulationWithRandomValues(newPopulation, naturallySelected);
+        FillPopulationWithRandomValues(newPopulation, naturalSelectionIndex);
 
         population = newPopulation;
 
@@ -111,7 +111,7 @@ public class GeneticAlgorithm : MonoBehaviour
         // Randomly change 'mutate' the weights of some neural networks - 
         // based on the probability of mutation
 
-        for (int i = 0; i < naturallySelected; i++) 
+        for (int i = 0; i < naturalSelectionIndex; i++) 
         {
 
             for (int c = 0; c < newPopulation[i].weights1.Count; c++)
@@ -149,110 +149,114 @@ public class GeneticAlgorithm : MonoBehaviour
 
     }
 
-private void PerformCrossover(NeuralNetwork[] newPopulation)
-{
-    for (int i = 0; i < crossoverCount; i += 2)
+    private void PerformCrossover(NeuralNetwork[] newPopulation)
     {
-        int parentIndexA = i;
-        int parentIndexB = i + 1;
-
-        // Ensure unique parents if genePool is not empty
-        if (genePool.Count >= 1)
+        for (int i = 0; i < crossoverCount; i += 2)
         {
-            while (parentIndexA == parentIndexB)
+            int parentIndexA = i;
+            int parentIndexB = i + 1;
+
+            // Ensure unique parents if genePool is not empty
+            if (genePool.Count >= 1)
             {
-                parentIndexA = genePool[Random.Range(0, genePool.Count)];
-                parentIndexB = genePool[Random.Range(0, genePool.Count)];
+                while (parentIndexA == parentIndexB)
+                {
+                    parentIndexA = genePool[Random.Range(0, genePool.Count)];
+                    parentIndexB = genePool[Random.Range(0, genePool.Count)];
+                }
             }
-        }
 
-        NeuralNetwork firstChild = CreateChild();
-        NeuralNetwork secondChild = CreateChild();
+            NeuralNetwork firstChild = CreateChild();
+            NeuralNetwork secondChild = CreateChild();
 
-        SwapWeightsAndBiases(firstChild, secondChild, parentIndexA, parentIndexB);
+            SwapWeightsAndBiases(firstChild, secondChild, parentIndexA, parentIndexB);
 
-        newPopulation[naturallySelected++] = firstChild;
-        newPopulation[naturallySelected++] = secondChild;
-    }
-}
-
-private NeuralNetwork CreateChild()
-{
-    NeuralNetwork child = (new GameObject().AddComponent<NeuralNetwork>());
-    child.Initialise(controller.layerCount, controller.neuronCount);
-    child.fitness = 0;
-    return child;
-}
-
-private void SwapWeightsAndBiases(NeuralNetwork firstChild, NeuralNetwork secondChild, int parentIndexA, int parentIndexB)
-{
-    for (int k = 0; k < firstChild.weights1.Count; k++)
-    {
-        if (Random.Range(0.0f, 2.0f) < 1f)
-        {
-            firstChild.weights1[k] = population[parentIndexA].weights1[k];
-            secondChild.weights1[k] = population[parentIndexB].weights1[k];
-        }
-        else
-        {
-            secondChild.weights1[k] = population[parentIndexA].weights1[k];
-            firstChild.weights1[k] = population[parentIndexB].weights1[k];
+            newPopulation[naturalSelectionIndex++] = firstChild;
+            newPopulation[naturalSelectionIndex++] = secondChild;
         }
     }
 
-    for (int k = 0; k < firstChild.biases1.Count; k++)
+    private NeuralNetwork CreateChild()
     {
-        if (Random.Range(0.0f, 2.0f) < 1f)
+        NeuralNetwork child = (new GameObject().AddComponent<NeuralNetwork>());
+        child.Initialise(controller.layerCount, controller.neuronCount);
+        child.fitness = 0;
+        return child;
+    }
+
+    private void SwapWeightsAndBiases(NeuralNetwork firstChild, NeuralNetwork secondChild, int parentIndexA, int parentIndexB)
+    {
+        for (int k = 0; k < firstChild.weights1.Count; k++)
         {
-            firstChild.biases1[k] = population[parentIndexA].biases1[k];
-            secondChild.biases1[k] = population[parentIndexB].biases1[k];
+            if (Random.Range(0.0f, 2.0f) < 1f)
+            {
+                firstChild.weights1[k] = population[parentIndexA].weights1[k];
+                secondChild.weights1[k] = population[parentIndexB].weights1[k];
+            }
+            else
+            {
+                secondChild.weights1[k] = population[parentIndexA].weights1[k];
+                firstChild.weights1[k] = population[parentIndexB].weights1[k];
+            }
         }
-        else
+
+        for (int k = 0; k < firstChild.biases1.Count; k++)
         {
-            secondChild.biases1[k] = population[parentIndexA].biases1[k];
-            firstChild.biases1[k] = population[parentIndexB].biases1[k];
+            if (Random.Range(0.0f, 2.0f) < 1f)
+            {
+                firstChild.biases1[k] = population[parentIndexA].biases1[k];
+                secondChild.biases1[k] = population[parentIndexB].biases1[k];
+            }
+            else
+            {
+                secondChild.biases1[k] = population[parentIndexA].biases1[k];
+                firstChild.biases1[k] = population[parentIndexB].biases1[k];
+            }
         }
     }
-}
 
 
-    private NeuralNetwork[] PickBestPopulation()
+    private NeuralNetwork[] SelectBestPopulation()
     {
-        // Create a temporary array to use in this subroutine
-        NeuralNetwork[] newPopulation = new NeuralNetwork[populationStartSize];
+        NeuralNetwork[] selectedPopulation = new NeuralNetwork[populationStartSize];
 
-        for (int i = 0; i < eliteSelectionCount; i++)
+        SelectElitePopulation(selectedPopulation);
+        SelectWeakPopulation(selectedPopulation);
+
+        return selectedPopulation;
+    }
+
+    private void SelectElitePopulation(NeuralNetwork[] selectedPopulation)
+    {
+        for (int index = 0; index < eliteSelectionCount; index++)
         {
-            newPopulation[naturallySelected] = population[i].InitialiseCopy(controller.layerCount, controller.neuronCount);
-            newPopulation[naturallySelected].fitness = 0;
-            naturallySelected++;
-            
-            int f = Mathf.RoundToInt(population[i].fitness * 10);
+            selectedPopulation[naturalSelectionIndex] = population[index].InitialiseCopy(controller.layerCount, controller.neuronCount);
+            selectedPopulation[naturalSelectionIndex].fitness = 0;
+            naturalSelectionIndex++;
 
-            for (int c = 0; c < f; c++)
+            int fitnessScaled = Mathf.RoundToInt(population[index].fitness * 10);
+
+            for (int count = 0; count < fitnessScaled; count++)
             {
-                genePool.Add(i);
+                genePool.Add(index);
             }
-
         }
+    }
 
-        // add selected weak neural networks to the next generation
-        for (int i = 0; i < weakSelectionAgent; i++)
+    private void SelectWeakPopulation(NeuralNetwork[] selectedPopulation)
+    {
+        for (int index = 0; index < weakSelectionAgent; index++)
         {
-            int last = population.Length - 1;
-            last -= i;
+            int lastIndex = population.Length - 1;
+            lastIndex -= index;
 
-            int f = Mathf.RoundToInt(population[last].fitness * 10);
+            int fitnessScaled = Mathf.RoundToInt(population[lastIndex].fitness * 10);
 
-            for (int c = 0; c < f; c++)
+            for (int count = 0; count < fitnessScaled; count++)
             {
-                genePool.Add(last);
+                genePool.Add(lastIndex);
             }
-
         }
-
-        return newPopulation;
-
     }
 
 
