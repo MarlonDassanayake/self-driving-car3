@@ -222,7 +222,7 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         for (int index = 0; index < eliteSelectionCount; index++)
         {
-            selectedPopulation[naturalSelectionIndex] = vehiclePopulation[index].InitialiseCopy(controller.layerCount, controller.neuronCount);
+            selectedPopulation[naturalSelectionIndex] = vehiclePopulation[index].DuplicateNetwork(controller.layerCount, controller.neuronCount);
             selectedPopulation[naturalSelectionIndex].fitness = 0;
             naturalSelectionIndex++;
 

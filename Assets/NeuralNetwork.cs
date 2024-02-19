@@ -103,7 +103,7 @@ public class NeuralNetwork : MonoBehaviour
 
     }
 
-    public NeuralNetwork InitialiseCopy (int layerCount, int neuronCount)
+    public NeuralNetwork DuplicateNetwork (int layerCount, int neuronCount)
     {
         
         NeuralNetwork newNetwork = (new GameObject().AddComponent<NeuralNetwork>());
@@ -112,16 +112,15 @@ public class NeuralNetwork : MonoBehaviour
         List<List<List<float>>> newWeights1 = new List<List<List<float>>>();
 
         // Loop through the currents weights in this Neural network class and assign these to the new list of weights
-        // I THINK ADDRANGE() CAN BE USED TO DO THIS! , or see comment on vd 3 'bravo'
         for (int i = 0; i < this.weights1.Count; i++)        
         {
             List<List<float>> currentWeight1 = CreateMatrix(weights1[i].Count, weights1[i][0].Count);
 
-            for (int x = 0; x < currentWeight1.Count; x++)
+            for (int j = 0; j < currentWeight1.Count; j++)
             {
-                for (int y = 0; y < currentWeight1[0].Count; y++)
+                for (int k = 0; k < currentWeight1[0].Count; k++)
                 {
-                    currentWeight1[x][y] = weights1[i][x][y];
+                    currentWeight1[j][k] = weights1[i][j][k];
                 }
             }
 
@@ -134,13 +133,13 @@ public class NeuralNetwork : MonoBehaviour
         newNetwork.weights1 = newWeights1;
         newNetwork.biases1 = newBiases1;
 
-        newNetwork.InitialiseHidden(layerCount, neuronCount); 
+        newNetwork.ResetHiddenLayers(layerCount, neuronCount); 
 
         // return newNetwork.
         return newNetwork;
     }
 
-    public void InitialiseHidden (int layerCount, int neuronCount)
+    public void ResetHiddenLayers (int layerCount, int neuronCount)
     {
 
         // Reset input layer, output layer and hidden layers.
@@ -149,12 +148,10 @@ public class NeuralNetwork : MonoBehaviour
         hiddenLayers1.Clear();
 
         // Copy the hidden layers
-        for (int i = 0; i < layerCount + 1; i ++)
+        for (int i = 0; i <= layerCount; i ++)
         {
-
             List<List<float>> newHiddenLayer1 = CreateMatrix(1, neuronCount);
             hiddenLayers1.Add(newHiddenLayer1);
-
         }
 
     }
