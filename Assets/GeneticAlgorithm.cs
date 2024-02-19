@@ -37,17 +37,17 @@ public class GeneticAlgorithm : MonoBehaviour
         population = new NeuralNetwork[populationStartSize];       // old but ok
         GenerateRandomPopulation(population, 0);  // old but ok
 
-        ResetToCurrentGenome();
+        AutoControllerReset();
     }
 
-    private void ResetToCurrentGenome()
+    private void AutoControllerReset()
     {
         foreach(AutonomousVehicleController car in controllers)
             car.ResetWithNetwork(population[genomeIndex]);
     }
 
     // Polymorphism - same method name with different signature.
-    private void ResetToCurrentGenome(AutonomousVehicleController car)
+    private void AutoControllerReset(AutonomousVehicleController car)
     {
         car.ResetWithNetwork(population[genomeIndex]); //old but ok
     }
@@ -71,7 +71,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
             population[genomeIndex].fitness = fitness;
             genomeIndex++;
-            ResetToCurrentGenome(car);
+            AutoControllerReset(car);
 
         }
         else
@@ -100,7 +100,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         genomeIndex = 0;
 
-        ResetToCurrentGenome();
+        AutoControllerReset();
 
     }
 
