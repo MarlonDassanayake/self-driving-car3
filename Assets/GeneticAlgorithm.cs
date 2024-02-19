@@ -35,14 +35,13 @@ public class GeneticAlgorithm : MonoBehaviour
         // Fetch all of the car controllers.
         controllers = FindObjectsOfType<AutonomousVehicleController>();
         population = new NeuralNetwork[populationStartSize];       // old but ok
-        FillPopulationWithRandomValues(population, 0);  // old but ok
+        GenerateRandomPopulation(population, 0);  // old but ok
 
         ResetToCurrentGenome();
     }
 
     private void ResetToCurrentGenome()
     {
-        //controller.ResetWithNetwork(population[genomeIndex]); //old but ok
         foreach(AutonomousVehicleController car in controllers)
             car.ResetWithNetwork(population[genomeIndex]);
     }
@@ -54,7 +53,7 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
     // generated a random population
-    private void FillPopulationWithRandomValues (NeuralNetwork[] newPopulation, int startingIndex)   
+    private void GenerateRandomPopulation(NeuralNetwork[] newPopulation, int startingIndex)   
     {
         while (startingIndex < populationStartSize)
         {
@@ -95,7 +94,7 @@ public class GeneticAlgorithm : MonoBehaviour
         PerformCrossover(newPopulation);
         Mutate(newPopulation);
 
-        FillPopulationWithRandomValues(newPopulation, naturalSelectionIndex);
+        GenerateRandomPopulation(newPopulation, naturalSelectionIndex);
 
         population = newPopulation;
 
@@ -111,15 +110,15 @@ public class GeneticAlgorithm : MonoBehaviour
         // Randomly change 'mutate' the weights of some neural networks - 
         // based on the probability of mutation
 
-        for (int i = 0; i < naturalSelectionIndex; i++) 
+        for (int currentIndex = 0; currentIndex < naturalSelectionIndex; currentIndex++) 
         {
 
-            for (int c = 0; c < newPopulation[i].weights1.Count; c++)
+            for (int currentWeight = 0; currentWeight < newPopulation[currentIndex].weights1.Count; currentWeight++)
             {
 
                 if (Random.Range(0.0f, 1.0f) < probabilityOfMutation)
                 {
-                    newPopulation[i].weights1[c] = ApplyMutationMatrix(newPopulation[i].weights1[c]);
+                    newPopulation[currentIndex].weights1[currentWeight] = ApplyMutationMatrix(newPopulation[currentIndex].weights1[currentWeight]);
                 }
 
             }
