@@ -80,7 +80,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void Death ()
     {
-        GameObject.FindObjectOfType<GeneticAlgorithm>().Death(calculatedFitnessValue, network, this);
+        GameObject.FindObjectOfType<GeneticAlgorithm>().ResetAfterCollision(calculatedFitnessValue, network, this);
     }
 
     private void CalculateFitness() {

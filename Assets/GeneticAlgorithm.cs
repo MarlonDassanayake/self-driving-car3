@@ -63,7 +63,7 @@ public class GeneticAlgorithm : MonoBehaviour
         }
     }
 
-    public void Death (float fitness, NeuralNetwork network, AutonomousVehicleController car)     // OK
+    public void ResetAfterCollision (float fitness, NeuralNetwork network, AutonomousVehicleController car)     // OK
     {
 
         if (genomeIndex < population.Length -1)
@@ -76,13 +76,13 @@ public class GeneticAlgorithm : MonoBehaviour
         }
         else
         {
-            RePopulate();
+            GenerateNextPopulation();
         }
 
     }
 
     
-    private void RePopulate()
+    private void GenerateNextPopulation()
     {
         genePool.Clear(); // clears the networks from the previous generation
         generationIndex++;
