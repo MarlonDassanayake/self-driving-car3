@@ -23,7 +23,7 @@ public class GeneticAlgorithm : MonoBehaviour
     private int naturalSelectionIndex; // A counter
 
     // Create an array of neural networks to represent the popultation
-    private NeuralNetwork[] population;  // old but OK
+    private NeuralNetwork[] vehiclePopulation;  // old but OK
 
     private void Start()
     {
@@ -34,8 +34,8 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         // Fetch all of the vehicle controllers.
         controllers = FindObjectsOfType<AutonomousVehicleController>();
-        population = new NeuralNetwork[populationStartSize];       // old but ok
-        GenerateRandomPopulation(population, 0);  // old but ok
+        vehiclePopulation = new NeuralNetwork[populationStartSize];       // old but ok
+        GenerateRandomPopulation(vehiclePopulation, 0);  // old but ok
 
         AutoControllerReset();
     }
@@ -43,13 +43,13 @@ public class GeneticAlgorithm : MonoBehaviour
     private void AutoControllerReset()
     {
         foreach(AutonomousVehicleController vehicle in controllers)
-            vehicle.ResetWithNetwork(population[genomeIndex]);
+            vehicle.ResetWithNetwork(vehiclePopulation[genomeIndex]);
     }
 
     // Polymorphism - same method name with different signature.
     private void AutoControllerReset(AutonomousVehicleController vehicle)
     {
-        vehicle.ResetWithNetwork(population[genomeIndex]); //old but ok
+        vehicle.ResetWithNetwork(vehiclePopulation[genomeIndex]); //old but ok
     }
 
     // generated a random population
@@ -66,10 +66,10 @@ public class GeneticAlgorithm : MonoBehaviour
     public void ResetAfterCollision (float fitness, NeuralNetwork network, AutonomousVehicleController vehicle)     // OK
     {
 
-        if (genomeIndex < population.Length -1)
+        if (genomeIndex < vehiclePopulation.Length -1)
         {
 
-            population[genomeIndex].fitness = fitness;
+            vehiclePopulation[genomeIndex].fitness = fitness;
             genomeIndex++;
             AutoControllerReset(vehicle);
 
@@ -87,7 +87,7 @@ public class GeneticAlgorithm : MonoBehaviour
         genePool.Clear(); // clears the networks from the previous generation
         generationIndex++;
         naturalSelectionIndex = 0;
-        MergeSortPopulation(population, 0, population.Length - 1);
+        MergeSortPopulation(vehiclePopulation, 0, vehiclePopulation.Length - 1);
 
         NeuralNetwork[] newPopulation = SelectBestPopulation();
 
@@ -96,7 +96,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         GenerateRandomPopulation(newPopulation, naturalSelectionIndex);
 
-        population = newPopulation;
+        vehiclePopulation = newPopulation;
 
         genomeIndex = 0;
 
@@ -189,13 +189,13 @@ public class GeneticAlgorithm : MonoBehaviour
         {
             if (Random.Range(0.0f, 2.0f) < 1f)
             {
-                firstChild.weights1[k] = population[parentIndexA].weights1[k];
-                secondChild.weights1[k] = population[parentIndexB].weights1[k];
+                firstChild.weights1[k] = vehiclePopulation[parentIndexA].weights1[k];
+                secondChild.weights1[k] = vehiclePopulation[parentIndexB].weights1[k];
             }
             else
             {
-                secondChild.weights1[k] = population[parentIndexA].weights1[k];
-                firstChild.weights1[k] = population[parentIndexB].weights1[k];
+                secondChild.weights1[k] = vehiclePopulation[parentIndexA].weights1[k];
+                firstChild.weights1[k] = vehiclePopulation[parentIndexB].weights1[k];
             }
         }
 
@@ -203,13 +203,13 @@ public class GeneticAlgorithm : MonoBehaviour
         {
             if (Random.Range(0.0f, 2.0f) < 1f)
             {
-                firstChild.biases1[k] = population[parentIndexA].biases1[k];
-                secondChild.biases1[k] = population[parentIndexB].biases1[k];
+                firstChild.biases1[k] = vehiclePopulation[parentIndexA].biases1[k];
+                secondChild.biases1[k] = vehiclePopulation[parentIndexB].biases1[k];
             }
             else
             {
-                secondChild.biases1[k] = population[parentIndexA].biases1[k];
-                firstChild.biases1[k] = population[parentIndexB].biases1[k];
+                secondChild.biases1[k] = vehiclePopulation[parentIndexA].biases1[k];
+                firstChild.biases1[k] = vehiclePopulation[parentIndexB].biases1[k];
             }
         }
     }
@@ -229,11 +229,11 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         for (int index = 0; index < eliteSelectionCount; index++)
         {
-            selectedPopulation[naturalSelectionIndex] = population[index].InitialiseCopy(controller.layerCount, controller.neuronCount);
+            selectedPopulation[naturalSelectionIndex] = vehiclePopulation[index].InitialiseCopy(controller.layerCount, controller.neuronCount);
             selectedPopulation[naturalSelectionIndex].fitness = 0;
             naturalSelectionIndex++;
 
-            int fitnessScaled = Mathf.RoundToInt(population[index].fitness * 10);
+            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[index].fitness * 10);
 
             for (int count = 0; count < fitnessScaled; count++)
             {
@@ -246,10 +246,10 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         for (int index = 0; index < weakSelectionAgent; index++)
         {
-            int lastIndex = population.Length - 1;
+            int lastIndex = vehiclePopulation.Length - 1;
             lastIndex -= index;
 
-            int fitnessScaled = Mathf.RoundToInt(population[lastIndex].fitness * 10);
+            int fitnessScaled = Mathf.RoundToInt(vehiclePopulation[lastIndex].fitness * 10);
 
             for (int count = 0; count < fitnessScaled; count++)
             {
