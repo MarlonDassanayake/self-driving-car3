@@ -82,7 +82,7 @@ public class GeneticAlgorithm : MonoBehaviour
         naturalSelectionIndex = 0;
         MergeSortPopulation(vehiclePopulation, 0, vehiclePopulation.Length - 1);
 
-        NeuralNetwork[] updatedVehiclePopulation = SelectBestPopulation();
+        NeuralNetwork[] updatedVehiclePopulation = SelectNextGeneration();
 
         PerformCrossover(updatedVehiclePopulation);
         PerformMutatation(updatedVehiclePopulation);
@@ -208,7 +208,7 @@ public class GeneticAlgorithm : MonoBehaviour
     }
 
 
-    private NeuralNetwork[] SelectBestPopulation()
+    private NeuralNetwork[] SelectNextGeneration()
     {
         NeuralNetwork[] selectedPopulation = new NeuralNetwork[populationStartSize];
 
