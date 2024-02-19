@@ -62,7 +62,7 @@ public class AutonomousVehicleController : MonoBehaviour
     {
         GetSensorValues();
         updatedPosition = transform.position;
-        (vehicleAccelerationValue, vehicleSteeringDirection) = neuralNetwork.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
+        (vehicleAccelerationValue, vehicleSteeringDirection) = neuralNetwork.ComputeNeuralNetworkOutput(rightRayValue, straightRayValue, leftRayValue);
         VehicleDriver(vehicleAccelerationValue, vehicleSteeringDirection);
         elapsedTime += Time.deltaTime;
         UpdateVehicleData();

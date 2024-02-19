@@ -176,7 +176,7 @@ public class NeuralNetwork : MonoBehaviour
     }
 
     // Function runs the neural network. It returns to values - acceleration and steering.
-    public (float, float) RunNetwork (float a, float b, float c)
+    public (float, float) ComputeNeuralNetworkOutput (float a, float b, float c)
     {
 
         // Values of input layer set to input sensor values
