@@ -63,11 +63,9 @@ public class GeneticAlgorithm : MonoBehaviour
 
         if (genomeIndex < vehiclePopulation.Length -1)
         {
-
             vehiclePopulation[genomeIndex].fitness = fitness;
             genomeIndex++;
             AutoControllerReset(vehicle);
-
         }
         else
         {

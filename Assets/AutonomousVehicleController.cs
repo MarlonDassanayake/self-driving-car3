@@ -59,7 +59,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void FixedUpdate() {
 
-        InputSensors();
+        GetSensorValues();
         lastPosition = transform.position;
 
 
@@ -91,35 +91,42 @@ public class AutonomousVehicleController : MonoBehaviour
 
     }
 
-    private void InputSensors() {
+    private void GetSensorValues() {
+        // Define ray directions for right, straight, and left
+        Vector3[] directions = { 
+            transform.forward + transform.right, 
+            transform.forward, 
+            transform.forward - transform.right 
+        };
 
-        Vector3 a = (transform.forward+transform.right);
-        Vector3 b = (transform.forward);
-        Vector3 c = (transform.forward-transform.right);
+        // Define ray lengths corresponding to each direction
+        float[] rayLengths = { 40f, 80f, 40f };
 
-        Ray r = new Ray(transform.position,a);
-        RaycastHit hit;
+        // Perform raycasting for each direction
+        for (int i = 0; i < directions.Length; i++) {
+            Ray ray = new Ray(transform.position, directions[i]);
+            RaycastHit hit;
 
-        if (Physics.Raycast(r, out hit)) {
-            rightRayValue = hit.distance/40;
-            Debug.DrawLine(r.origin, hit.point, Color.red);
+            if (Physics.Raycast(ray, out hit)) {
+                float standardDistance = hit.distance / rayLengths[i];
+                Debug.DrawLine(ray.origin, hit.point, Color.red);
+                
+                // Assign the distance value based on direction
+                switch (i) {
+                    case 0:
+                        rightRayValue = standardDistance;
+                        break;
+                    case 1:
+                        straightRayValue = standardDistance;
+                        break;
+                    case 2:
+                        leftRayValue = standardDistance;
+                        break;
+                }
+            }
         }
-
-        r.direction = b;
-
-        if (Physics.Raycast(r, out hit)) {
-            straightRayValue = hit.distance/80;
-            Debug.DrawLine(r.origin, hit.point, Color.red);
-        }
-
-        r.direction = c;
-
-        if (Physics.Raycast(r, out hit)) {
-            leftRayValue = hit.distance/40;
-            Debug.DrawLine(r.origin, hit.point, Color.red);
-        }
-
     }
+
 
     public void VehicleDriver(float vehicleAcceleration, float vehicleSteering) 
     {
