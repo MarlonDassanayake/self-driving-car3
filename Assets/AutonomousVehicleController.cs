@@ -66,7 +66,7 @@ public class AutonomousVehicleController : MonoBehaviour
         (vehicleAccelerationValue, vehicleSteeringDirection) = network.RunNetwork(rightRayValue, straightRayValue, leftRayValue);
 
 
-        MoveCar(vehicleAccelerationValue, vehicleSteeringDirection);
+        VehicleDriver(vehicleAccelerationValue, vehicleSteeringDirection);
 
         elapsedTime += Time.deltaTime;
 
@@ -121,18 +121,18 @@ public class AutonomousVehicleController : MonoBehaviour
 
     }
 
-    private Vector3 inp;
-    public void MoveCar (float v, float h) {
-        inp = Vector3.Lerp(Vector3.zero,new Vector3(0,0,v*11.4f),0.02f);
-        inp = transform.TransformDirection(inp);
-        transform.position += inp;
+    public void VehicleDriver(float vehicleAcceleration, float vehicleSteering) 
+    {
+        Vector3 movement = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, vehicleAcceleration * 11.4f), 0.02f);
+        movement = transform.TransformDirection(movement);
+        transform.position += movement;
 
-        if (transform.position.y > 52.5f)
-        {
+        if (transform.position.y > 52.5f) {
             transform.position = new Vector3(transform.position.x, 52.5f, transform.position.z);
         }
 
-        transform.eulerAngles += new Vector3(0, (h*90)*0.02f,0);
+        transform.eulerAngles += new Vector3(0, (vehicleSteering * 90) * 0.02f, 0);
     }
+
 
 }
