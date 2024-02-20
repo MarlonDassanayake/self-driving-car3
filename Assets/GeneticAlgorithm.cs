@@ -12,7 +12,7 @@ public class GeneticAlgorithm : MonoBehaviour
     public int generationIndex = 0;
     public int genomeIndex = 0;
     public int populationStartSize = 85;
-    public int strongSelectionCount = 8;
+    public int eliteSelectionCount = 8;
     public int weakSelectionAgent = 3;
     public int crossoverCount;
     public float probabilityOfMutation = 0.055f;
@@ -220,7 +220,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
     private void SelectStrongPopulation(NeuralNetwork[] selectedPopulation)
     {
-        for (int index = 0; index < strongSelectionCount; index++)
+        for (int index = 0; index < eliteSelectionCount; index++)
         {
             selectedPopulation[naturalSelectionIndex] = vehiclePopulation[index].DuplicateNetwork(controller.layerCount, controller.neuronCount);
             selectedPopulation[naturalSelectionIndex].fitnessValue = 0;
