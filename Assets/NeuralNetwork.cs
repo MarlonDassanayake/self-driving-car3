@@ -172,13 +172,13 @@ public class NeuralNetwork : MonoBehaviour
 
 
     // Function runs the neural network. It returns to values - acceleration and steering.
-    public (float, float) ComputeNeuralNetworkOutput (float a, float b, float c)
+    public (float, float) ComputeNeuralNetworkOutput (float rightRayValue, float forwardRayValue, float leftRayValue)
     {
 
         // Values of input layer set to input sensor values
-        inputLayerMatrix[0][0] = a;     
-        inputLayerMatrix[0][1] = b;      
-        inputLayerMatrix[0][2] = c;   
+        inputLayerMatrix[0][0] = rightRayValue;     
+        inputLayerMatrix[0][1] = forwardRayValue;      
+        inputLayerMatrix[0][2] = leftRayValue;   
 
 
         // Tanh used as we would like our output values for steering to be between -1 and 1.
