@@ -14,7 +14,7 @@ public class GeneticAlgorithm : MonoBehaviour
     public int populationStartSize = 85;
     public int eliteSelectionCount = 8;
     public int weakSelectionAgent = 3;
-    public int crossoverCount;
+    public int crossoverCount = 13;
     public float probabilityOfMutation = 0.055f;
 
     // Create a list of integers to represent the gene pool (the networks that are selected)
