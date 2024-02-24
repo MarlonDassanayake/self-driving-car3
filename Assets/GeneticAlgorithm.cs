@@ -9,7 +9,7 @@ public class GeneticAlgorithm : MonoBehaviour
     public AutonomousVehicleController controller; // old BUT OK
     public AutonomousVehicleController[] controllers; // old BUT OK
 
-    public int generationIndex;
+    public int generationIndex = 0;
     public int genomeIndex = 0;
     public int populationStartSize = 85;
     public int eliteSelectionCount = 8;
@@ -186,7 +186,7 @@ public class GeneticAlgorithm : MonoBehaviour
     {
         for (int k = 0; k < firstChild.weightsList.Count; k++)
         {
-            if (Random.Range(0.0f, 1.0f) < 0.5f)
+            if (Random.Range(0.0f, 2.0f) < 1.0f)
             {
                 firstChild.weightsList[k] = vehiclePopulation[parentIndexA].weightsList[k];
                 secondChild.weightsList[k] = vehiclePopulation[parentIndexB].weightsList[k];
@@ -200,7 +200,7 @@ public class GeneticAlgorithm : MonoBehaviour
 
         for (int k = 0; k < firstChild.biasList.Count; k++)
         {
-            if (Random.Range(0.0f, 1.0f) < 0.5f)
+            if (Random.Range(0.0f, 2.0f) < 1.0f)
             {
                 firstChild.biasList[k] = vehiclePopulation[parentIndexA].biasList[k];
                 secondChild.biasList[k] = vehiclePopulation[parentIndexB].biasList[k];
