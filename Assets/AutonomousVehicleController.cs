@@ -137,10 +137,10 @@ public class AutonomousVehicleController : MonoBehaviour
         }
     }
 
-
+    private Vector3 displace;
     public void VehicleDriver(float vehicleAcceleration, float vehicleSteering) 
     {
-        Vector3 displace = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, vehicleAcceleration * 11.4f), 0.02f);
+        displace = Vector3.Lerp(Vector3.zero, new Vector3(0, 0, vehicleAcceleration * 11.4f), 0.02f);
         displace = transform.TransformDirection(displace);
         transform.position += displace;
 
