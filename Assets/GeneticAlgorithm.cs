@@ -151,6 +151,9 @@ public class GeneticAlgorithm : MonoBehaviour
             // Ensure unique parents if selectedNetworks is not empty
             if (selectedNetworks.Count >= 1)
             {
+                parentIndexA = selectedNetworks[Random.Range(0, selectedNetworks.Count)];
+                parentIndexB = selectedNetworks[Random.Range(0, selectedNetworks.Count)];
+
                 while (parentIndexA == parentIndexB)
                 {
                     parentIndexA = selectedNetworks[Random.Range(0, selectedNetworks.Count)];
