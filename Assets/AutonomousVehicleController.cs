@@ -87,11 +87,7 @@ public class AutonomousVehicleController : MonoBehaviour
 
     private void UpdateSpeedValue() 
     {
-        float elapsedTime = Time.deltaTime;
-        if (elapsedTime > 0) 
-        {
-            speedValue = distanceValue / elapsedTime;
-        }
+        speedValue = distanceValue / elapsedTime;
     }
 
     private void UpdateCalculatedFitnessValue() 
